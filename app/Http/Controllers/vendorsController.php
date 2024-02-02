@@ -118,33 +118,45 @@ class vendorsController extends AppBaseController
      *
      * @return Response
      */
-    public function update($id, UpdatevendorsRequest $request)
-    {
-        $vendors = $this->vendorsRepository->find($id);
+  /**
+ * Update the specified vendors in storage.
+ *
+ * @param int $id
+ * @param UpdatevendorsRequest $request
+ *
+ * @return Response
+ */
+public function update($id, UpdatevendorsRequest $request)
+{
+    $vendors = $this->vendorsRepository->find($id);
 
-        if (empty($vendors)) {
-            Flash::error('Vendors not found');
-
-            return redirect(route('vendors.index'));
-        }
-
-        $input = $request->all();
-
-        // Handle file upload
-        if ($request->hasFile('vendorLogo')) {
-            // Delete old file if it exists
-            Storage::disk('public')->delete($vendors->vendorLogo);
-
-            $imagePath = $request->file('vendorLogo')->store('vendor_logos', 'public');
-            $input['vendorLogo'] = $imagePath;
-        }
-
-        $vendors = $this->vendorsRepository->update($input, $id);
-
-        Flash::success('Vendors updated successfully.');
-
+    if (empty($vendors)) {
+        Flash::error('Vendors not found');
         return redirect(route('vendors.index'));
     }
+
+    $input = $request->all();
+
+    // Handle file upload
+    if ($request->hasFile('vendorLogo')) {
+        // Delete old file if it exists
+        if ($vendors->vendorLogo) {
+            Storage::disk('public')->delete($vendors->vendorLogo);
+        }
+
+        // Upload new file
+        $imagePath = $request->file('vendorLogo')->store('vendor_logos', 'public');
+        $input['vendorLogo'] = $imagePath;
+    }
+
+    // Update the vendor with the new input
+    $vendors = $this->vendorsRepository->update($input, $id);
+
+    Flash::success('Vendors updated successfully.');
+
+    return redirect(route('vendors.index'));
+}
+
 
     /**
      * Remove the specified vendors from storage.

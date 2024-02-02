@@ -1,12 +1,10 @@
-<li class="nav-item">
+<li class="menu-title m-top-30">
     <a href="{{ route('vendors.index') }}"
        class="nav-link {{ Request::is('vendors*') ? 'active' : '' }}">
         <p>Vendors</p>
     </a>
 </li>
-
-
-<li class="nav-item">
+<li class="menu-title m-top-30">
     <a href="{{ route('clients.index') }}"
        class="nav-link {{ Request::is('clients*') ? 'active' : '' }}">
         <p>Clients</p>
@@ -14,7 +12,7 @@
 </li>
 
 
-<li class="nav-item">
+<li class="menu-title m-top-30">
     <a href="{{ route('babacctmanagers.index') }}"
        class="nav-link {{ Request::is('babacctmanagers*') ? 'active' : '' }}">
         <p>Babacctmanagers</p>
@@ -22,7 +20,7 @@
 </li>
 
 
-<li class="nav-item">
+<li class="menu-title m-top-30">
     <a href="{{ route('productservices.index') }}"
        class="nav-link {{ Request::is('productservices*') ? 'active' : '' }}">
         <p>Productservices</p>
@@ -30,7 +28,7 @@
 </li>
 
 
-<li class="nav-item">
+<li class="menu-title m-top-30">
     <a href="{{ route('vendordatas.index') }}"
        class="nav-link {{ Request::is('vendordatas*') ? 'active' : '' }}">
         <p>Vendordatas</p>
@@ -38,7 +36,7 @@
 </li>
 
 
-<li class="nav-item">
+<li class="menu-title m-top-30">
     <a href="{{ route('clientdatas.index') }}"
        class="nav-link {{ Request::is('clientdatas*') ? 'active' : '' }}">
         <p>Clientdatas</p>

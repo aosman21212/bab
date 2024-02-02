@@ -12,13 +12,11 @@
     </section>
 
     <div class="content px-3">
-
         @include('adminlte-templates::common.errors')
 
         <div class="card">
-
-            {!! Form::model($vendors, ['route' => ['vendors.update', $vendors->id], 'method' => 'patch']) !!}
-
+            {!! Form::model($vendors, ['route' => ['vendors.update', $vendors->id], 'method' => 'patch', 'enctype' => 'multipart/form-data']) !!}
+            
             <div class="card-body">
                 <div class="row">
                     @include('vendors.fields')
@@ -31,7 +29,6 @@
             </div>
 
             {!! Form::close() !!}
-
         </div>
     </div>
 @endsection
