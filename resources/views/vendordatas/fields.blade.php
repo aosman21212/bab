@@ -1,7 +1,7 @@
-<!-- Productserviceid Field -->
+<!-- ProductServiceId Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('productServiceId', 'Productserviceid:') !!}
-    {!! Form::number('productServiceId', null, ['class' => 'form-control']) !!}
+    {!! Form::label('productServiceId', 'Product Service ID:') !!}
+    {!! Form::select('productServiceId', $prod->pluck('productServiceName', 'id'), null, ['class' => 'form-control', 'placeholder' => 'Select ProductServiceName', 'id' => 'productServiceId', 'onchange' => 'fetchInitiatedQuantity()']) !!}
 </div>
 
 <!-- Invoiceno Field -->
@@ -16,16 +16,16 @@
     {!! Form::number('invoiceAmount', null, ['class' => 'form-control']) !!}
 </div>
 
-<!-- Invoicemonth Field -->
-<div class="form-group col-sm-6">
-    {!! Form::label('invoiceMonth', 'Invoicemonth:') !!}
-    {!! Form::number('invoiceMonth', null, ['class' => 'form-control']) !!}
+<!-- Invoice Month Field -->
+<div class="form-group col-sm-4">
+    {!! Form::label('invoiceMonth', 'Invoice Month:') !!}
+    {!! Form::selectMonth('invoiceMonth', null, ['class' => 'form-control']) !!}
 </div>
 
-<!-- Invoiceyear Field -->
-<div class="form-group col-sm-6">
-    {!! Form::label('invoiceYear', 'Invoiceyear:') !!}
-    {!! Form::number('invoiceYear', null, ['class' => 'form-control']) !!}
+<!-- Invoice Year Field -->
+<div class="form-group col-sm-4">
+    {!! Form::label('invoiceYear', 'Invoice Year:') !!}
+    {!! Form::selectRange('invoiceYear', now()->year, now()->year + 10, null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Invoicedate Field -->
@@ -44,8 +44,8 @@
     </script>
 @endpush
 
-<!-- Addedby Field -->
+<!-- AddedBy Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('addedBy', 'Addedby:') !!}
-    {!! Form::number('addedBy', null, ['class' => 'form-control']) !!}
+    {!! Form::label('addedBy', 'Added by:') !!}
+    {!! Form::number('addedBy', auth()->id(), ['class' => 'form-control', 'readonly' => 'readonly']) !!}
 </div>

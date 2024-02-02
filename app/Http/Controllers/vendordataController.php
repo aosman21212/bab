@@ -7,6 +7,7 @@ use App\Http\Requests\UpdatevendordataRequest;
 use App\Repositories\vendordataRepository;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
+use App\Models\productservices;
 use Flash;
 use Response;
 
@@ -42,7 +43,9 @@ class vendordataController extends AppBaseController
      */
     public function create()
     {
-        return view('vendordatas.create');
+        $prod = productservices::all();
+
+        return view('vendordatas.create',compact('prod'));
     }
 
     /**
@@ -100,7 +103,9 @@ class vendordataController extends AppBaseController
             return redirect(route('vendordatas.index'));
         }
 
-        return view('vendordatas.edit')->with('vendordata', $vendordata);
+        $prod = productservices::all();
+
+        return view('vendordatas.edit',compact('prod'))->with('vendordata', $vendordata);
     }
 
     /**
