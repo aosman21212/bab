@@ -23,6 +23,22 @@
                     <li class="menu-title">
                             <span>Main menu</span>
                         </li>
+                        <li class="has-child open">
+                            <a href="#" class="active">
+                                <span data-feather="home" class="nav-icon"></span>
+                                <span class="menu-text">Dashboard</span>
+                                <span class="toggle-icon"></span>
+                            </a>
+                            <ul>
+                             
+                                <li>
+                                    <a class="" href="business.html">FineTech /
+                                        Business</a>
+                                </li>
+                              
+                              
+                            </ul>
+                        </li>
                     @include('layouts.menu')
 
                     </ul>

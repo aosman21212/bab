@@ -37,7 +37,7 @@
 <!-- Orderdate Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('orderDate', 'Orderdate:') !!}
-    {!! Form::text('orderDate', null, ['class' => 'form-control','id'=>'orderDate']) !!}
+    {!! Form::date('orderDate', null, ['class' => 'form-control','id'=>'orderDate']) !!}
 </div>
 
 @push('page_scripts')
@@ -53,7 +53,7 @@
 <!-- Startdate Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('startDate', 'Startdate:') !!}
-    {!! Form::text('startDate', null, ['class' => 'form-control','id'=>'startDate']) !!}
+    {!! Form::date('startDate', null, ['class' => 'form-control','id'=>'startDate']) !!}
 </div>
 
 @push('page_scripts')

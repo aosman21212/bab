@@ -1,42 +1,71 @@
-<!-- Productserviceid Field -->
-<div class="col-sm-12">
-    {!! Form::label('productServiceId', 'Productserviceid:') !!}
-    <p>{{ $vendordata->productServiceId }}</p>
-</div>
+<table class="table table-bordered">
+    <!-- Productserviceid Field -->
+    <tr>
+        <td class="col-sm-12">
+            {!! Form::label('productServiceId', 'Productserviceid:') !!}
+        </td>
+        <td>
+            <p>{{ $vendordata->productServiceId }}</p>
+        </td>
+    </tr>
 
-<!-- Invoiceno Field -->
-<div class="col-sm-12">
-    {!! Form::label('invoiceNo', 'Invoiceno:') !!}
-    <p>{{ $vendordata->invoiceNo }}</p>
-</div>
+    <!-- Invoiceno Field -->
+    <tr>
+        <td class="col-sm-12">
+            {!! Form::label('invoiceNo', 'Invoiceno:') !!}
+        </td>
+        <td>
+            <p>{{ $vendordata->invoiceNo }}</p>
+        </td>
+    </tr>
 
-<!-- Invoiceamount Field -->
-<div class="col-sm-12">
-    {!! Form::label('invoiceAmount', 'Invoiceamount:') !!}
-    <p>{{ $vendordata->invoiceAmount }}</p>
-</div>
+    <!-- Invoiceamount Field -->
+    <tr>
+        <td class="col-sm-12">
+            {!! Form::label('invoiceAmount', 'Invoiceamount:') !!}
+        </td>
+        <td>
+            <p>{{ $vendordata->invoiceAmount }}</p>
+        </td>
+    </tr>
 
-<!-- Invoicemonth Field -->
-<div class="col-sm-12">
-    {!! Form::label('invoiceMonth', 'Invoicemonth:') !!}
-    <p>{{ $vendordata->invoiceMonth }}</p>
-</div>
+    <!-- Invoicemonth Field -->
+    <tr>
+        <td class="col-sm-12">
+            {!! Form::label('invoiceMonth', 'Invoicemonth:') !!}
+        </td>
+        <td>
+            <p>{{ $vendordata->invoiceMonth }}</p>
+        </td>
+    </tr>
 
-<!-- Invoiceyear Field -->
-<div class="col-sm-12">
-    {!! Form::label('invoiceYear', 'Invoiceyear:') !!}
-    <p>{{ $vendordata->invoiceYear }}</p>
-</div>
+    <!-- Invoiceyear Field -->
+    <tr>
+        <td class="col-sm-12">
+            {!! Form::label('invoiceYear', 'Invoiceyear:') !!}
+        </td>
+        <td>
+            <p>{{ $vendordata->invoiceYear }}</p>
+        </td>
+    </tr>
 
-<!-- Invoicedate Field -->
-<div class="col-sm-12">
-    {!! Form::label('invoiceDate', 'Invoicedate:') !!}
-    <p>{{ $vendordata->invoiceDate }}</p>
-</div>
+    <!-- Invoicedate Field -->
+    <tr>
+        <td class="col-sm-12">
+            {!! Form::label('invoiceDate', 'Invoicedate:') !!}
+        </td>
+        <td>
+            <p>{{ $vendordata->invoiceDate }}</p>
+        </td>
+    </tr>
 
-<!-- Addedby Field -->
-<div class="col-sm-12">
-    {!! Form::label('addedBy', 'Addedby:') !!}
-    <p>{{ $vendordata->addedBy }}</p>
-</div>
-
+    <!-- Addedby Field -->
+    <tr>
+        <td class="col-sm-12">
+            {!! Form::label('addedBy', 'Addedby:') !!}
+        </td>
+        <td>
+            <p>{{ $vendordata->addedBy }}</p>
+        </td>
+    </tr>
+</table>

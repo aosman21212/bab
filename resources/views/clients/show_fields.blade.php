@@ -1,72 +1,109 @@
-<!-- Clientname Field -->
-<div class="col-sm-12">
-    {!! Form::label('clientName', 'Clientname:') !!}
-    <p>{{ $clients->clientName }}</p>
-</div>
+<table class="table table-bordered">
+    <tr>
+        <td class="col-sm-12">
+            {!! Form::label('clientName', 'Clientname:') !!}
+        </td>
+        <td>
+            <p>{{ $clients->clientName }}</p>
+        </td>
+    </tr>
 
-<!-- Clientlogo Field -->
-<div class="col-sm-12">
-    {!! Form::label('clientLogo', 'Clientlogo:') !!}
-    <p>{{ $clients->clientLogo }}</p>
-</div>
+    <tr>
+        <td class="col-sm-12">
+            {!! Form::label('clientLogo', 'Clientlogo:') !!}
+        </td>
+        <td>
+            <p>{{ $clients->clientLogo }}</p>
+        </td>
+    </tr>
 
-<!-- Contactname Field -->
-<div class="col-sm-12">
-    {!! Form::label('contactName', 'Contactname:') !!}
-    <p>{{ $clients->contactName }}</p>
-</div>
+    <tr>
+        <td class="col-sm-12">
+            {!! Form::label('contactName', 'Contactname:') !!}
+        </td>
+        <td>
+            <p>{{ $clients->contactName }}</p>
+        </td>
+    </tr>
 
-<!-- Mobileno Field -->
-<div class="col-sm-12">
-    {!! Form::label('mobileNo', 'Mobileno:') !!}
-    <p>{{ $clients->mobileNo }}</p>
-</div>
+    <tr>
+        <td class="col-sm-12">
+            {!! Form::label('mobileNo', 'Mobileno:') !!}
+        </td>
+        <td>
+            <p>{{ $clients->mobileNo }}</p>
+        </td>
+    </tr>
 
-<!-- Email Field -->
-<div class="col-sm-12">
-    {!! Form::label('email', 'Email:') !!}
-    <p>{{ $clients->email }}</p>
-</div>
+    <tr>
+        <td class="col-sm-12">
+            {!! Form::label('email', 'Email:') !!}
+        </td>
+        <td>
+            <p>{{ $clients->email }}</p>
+        </td>
+    </tr>
 
-<!-- Babacctmanagerid Field -->
-<div class="col-sm-12">
-    {!! Form::label('babAcctManagerId', 'Babacctmanagerid:') !!}
-    <p>{{ $clients->babAcctManagerId }}</p>
-</div>
+    <tr>
+        <td class="col-sm-12">
+            {!! Form::label('babAcctManagerId', 'Babacctmanagerid:') !!}
+        </td>
+        <td>
+            <p>{{ $clients->babAcctManagerId }}</p>
+        </td>
+    </tr>
 
-<!-- Orderdate Field -->
-<div class="col-sm-12">
-    {!! Form::label('orderDate', 'Orderdate:') !!}
-    <p>{{ $clients->orderDate }}</p>
-</div>
+    <tr>
+        <td class="col-sm-12">
+            {!! Form::label('orderDate', 'Orderdate:') !!}
+        </td>
+        <td>
+            <p>{{ $clients->orderDate }}</p>
+        </td>
+    </tr>
 
-<!-- Startdate Field -->
-<div class="col-sm-12">
-    {!! Form::label('startDate', 'Startdate:') !!}
-    <p>{{ $clients->startDate }}</p>
-</div>
+    <tr>
+        <td class="col-sm-12">
+            {!! Form::label('startDate', 'Startdate:') !!}
+        </td>
+        <td>
+            <p>{{ $clients->startDate }}</p>
+        </td>
+    </tr>
 
-<!-- Bill To Field -->
-<div class="col-sm-12">
-    {!! Form::label('bill_to', 'Bill To:') !!}
-    <p>{{ $clients->bill_to }}</p>
-</div>
+    <tr>
+        <td class="col-sm-12">
+            {!! Form::label('bill_to', 'Bill To:') !!}
+        </td>
+        <td>
+            <p>{{ $clients->bill_to }}</p>
+        </td>
+    </tr>
 
-<!-- Addedby Field -->
-<div class="col-sm-12">
-    {!! Form::label('addedBy', 'Addedby:') !!}
-    <p>{{ $clients->addedBy }}</p>
-</div>
+    <tr>
+        <td class="col-sm-12">
+            {!! Form::label('addedBy', 'Addedby:') !!}
+        </td>
+        <td>
+            <p>{{ $clients->addedBy }}</p>
+        </td>
+    </tr>
 
-<!-- Addeddate Field -->
-<div class="col-sm-12">
-    {!! Form::label('addedDate', 'Addeddate:') !!}
-    <p>{{ $clients->addedDate }}</p>
-</div>
+    <tr>
+        <td class="col-sm-12">
+            {!! Form::label('addedDate', 'Addeddate:') !!}
+        </td>
+        <td>
+            <p>{{ $clients->addedDate }}</p>
+        </td>
+    </tr>
 
-<!-- Clientstatus Field -->
-<div class="col-sm-12">
-    {!! Form::label('clientStatus', 'Clientstatus:') !!}
-    <p>{{ $clients->clientStatus }}</p>
-</div>
-
+    <tr>
+        <td class="col-sm-12">
+            {!! Form::label('clientStatus', 'Clientstatus:') !!}
+        </td>
+        <td>
+            <p>{{ $clients->clientStatus }}</p>
+        </td>
+    </tr>
+</table>

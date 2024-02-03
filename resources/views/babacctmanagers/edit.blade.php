@@ -1,37 +1,59 @@
+
+
+
+
 @extends('layouts.app')
 
 @section('content')
-    <section class="content-header">
-        <div class="container-fluid">
-            <div class="row mb-2">
-                <div class="col-sm-12">
-                    <h1>Edit Babacctmanagers</h1>
+
+
+<div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+
+                <div class="breadcrumb-main">
+                    <h4 class="text-capitalize breadcrumb-title">
+                    <h1>Editbabacctmanagers</h1>
+
+                    </h4>
+                    <div class="breadcrumb-action justify-content-center flex-wrap">
+                        <div class="action-btn">
+
+                        </div>
+                    </div>
                 </div>
+
             </div>
         </div>
-    </section>
+        <div class="row">
 
-    <div class="content px-3">
+            <div class="col-lg-12">
+                <div class="card card-Vertical card-default card-md mb-4">
+               
+                    @include('adminlte-templates::common.errors')
 
-        @include('adminlte-templates::common.errors')
+                    <div class="card-body py-md-30">
+                   
+                    {!! Form::model($babacctmanagers, ['route' => ['babacctmanagers.update', $babacctmanagers->id], 'method' => 'patch']) !!}
 
-        <div class="card">
+<div class="card-body">
+    <div class="row">
+    @include('babacctmanagers.fields')
+    </div>
+</div>
 
-            {!! Form::model($babacctmanagers, ['route' => ['babacctmanagers.update', $babacctmanagers->id], 'method' => 'patch']) !!}
+<div class="card-footer">
+            <div class="layout-button mt-0">
+<a href="{{ route('babacctmanagers.index') }}" class="btn btn-default btn-squared border-normal bg-normal px-20">Cancel</a>
+<button type="submit" class="btn btn-primary btn-default btn-squared px-30">Save</button>
+</div>
 
-            <div class="card-body">
-                <div class="row">
-                    @include('babacctmanagers.fields')
+{!! Form::close() !!}
+                    </div>
                 </div>
+                <!-- ends: .card -->
+
             </div>
-
-            <div class="card-footer">
-                {!! Form::submit('Save', ['class' => 'btn btn-primary']) !!}
-                <a href="{{ route('babacctmanagers.index') }}" class="btn btn-default">Cancel</a>
-            </div>
-
-            {!! Form::close() !!}
-
         </div>
     </div>
 @endsection

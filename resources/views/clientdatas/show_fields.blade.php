@@ -1,72 +1,121 @@
-<!-- Productserviceid Field -->
-<div class="col-sm-12">
-    {!! Form::label('productServiceId', 'Productserviceid:') !!}
-    <p>{{ $clientdata->productServiceId }}</p>
-</div>
+<table class="table table-bordered">
+    <!-- Productserviceid Field -->
+    <tr>
+        <td class="col-sm-12">
+            {!! Form::label('productServiceId', 'Productserviceid:') !!}
+        </td>
+        <td>
+            <p>{{ $clientdata->productServiceId }}</p>
+        </td>
+    </tr>
 
-<!-- Clientid Field -->
-<div class="col-sm-12">
-    {!! Form::label('clientId', 'Clientid:') !!}
-    <p>{{ $clientdata->clientId }}</p>
-</div>
+    <!-- Clientid Field -->
+    <tr>
+        <td class="col-sm-12">
+            {!! Form::label('clientId', 'Clientid:') !!}
+        </td>
+        <td>
+            <p>{{ $clientdata->clientId }}</p>
+        </td>
+    </tr>
 
-<!-- Month Field -->
-<div class="col-sm-12">
-    {!! Form::label('month', 'Month:') !!}
-    <p>{{ $clientdata->month }}</p>
-</div>
+    <!-- Month Field -->
+    <tr>
+        <td class="col-sm-12">
+            {!! Form::label('month', 'Month:') !!}
+        </td>
+        <td>
+            <p>{{ $clientdata->month }}</p>
+        </td>
+    </tr>
 
-<!-- Year Field -->
-<div class="col-sm-12">
-    {!! Form::label('year', 'Year:') !!}
-    <p>{{ $clientdata->year }}</p>
-</div>
+    <!-- Year Field -->
+    <tr>
+        <td class="col-sm-12">
+            {!! Form::label('year', 'Year:') !!}
+        </td>
+        <td>
+            <p>{{ $clientdata->year }}</p>
+        </td>
+    </tr>
 
-<!-- Quantity Field -->
-<div class="col-sm-12">
-    {!! Form::label('quantity', 'Quantity:') !!}
-    <p>{{ $clientdata->quantity }}</p>
-</div>
+    <!-- Quantity Field -->
+    <tr>
+        <td class="col-sm-12">
+            {!! Form::label('quantity', 'Quantity:') !!}
+        </td>
+        <td>
+            <p>{{ $clientdata->quantity }}</p>
+        </td>
+    </tr>
 
-<!-- Additionalquantity Field -->
-<div class="col-sm-12">
-    {!! Form::label('additionalQuantity', 'Additionalquantity:') !!}
-    <p>{{ $clientdata->additionalQuantity }}</p>
-</div>
+    <!-- Additionalquantity Field -->
+    <tr>
+        <td class="col-sm-12">
+            {!! Form::label('additionalQuantity', 'Additionalquantity:') !!}
+        </td>
+        <td>
+            <p>{{ $clientdata->additionalQuantity }}</p>
+        </td>
+    </tr>
 
-<!-- Additionalcost Field -->
-<div class="col-sm-12">
-    {!! Form::label('additionalCost', 'Additionalcost:') !!}
-    <p>{{ $clientdata->additionalCost }}</p>
-</div>
+    <!-- Additionalcost Field -->
+    <tr>
+        <td class="col-sm-12">
+            {!! Form::label('additionalCost', 'Additionalcost:') !!}
+        </td>
+        <td>
+            <p>{{ $clientdata->additionalCost }}</p>
+        </td>
+    </tr>
 
-<!-- Totalmonthlydue Field -->
-<div class="col-sm-12">
-    {!! Form::label('totalMonthlyDue', 'Totalmonthlydue:') !!}
-    <p>{{ $clientdata->totalMonthlyDue }}</p>
-</div>
+    <!-- Totalmonthlydue Field -->
+    <tr>
+        <td class="col-sm-12">
+            {!! Form::label('totalMonthlyDue', 'Totalmonthlydue:') !!}
+        </td>
+        <td>
+            <p>{{ $clientdata->totalMonthlyDue }}</p>
+        </td>
+    </tr>
 
-<!-- Outstandingbalance Field -->
-<div class="col-sm-12">
-    {!! Form::label('outstandingBalance', 'Outstandingbalance:') !!}
-    <p>{{ $clientdata->outstandingBalance }}</p>
-</div>
+    <!-- Outstandingbalance Field -->
+    <tr>
+        <td class="col-sm-12">
+            {!! Form::label('outstandingBalance', 'Outstandingbalance:') !!}
+        </td>
+        <td>
+            <p>{{ $clientdata->outstandingBalance }}</p>
+        </td>
+    </tr>
 
-<!-- Totaldue Field -->
-<div class="col-sm-12">
-    {!! Form::label('totalDue', 'Totaldue:') !!}
-    <p>{{ $clientdata->totalDue }}</p>
-</div>
+    <!-- Totaldue Field -->
+    <tr>
+        <td class="col-sm-12">
+            {!! Form::label('totalDue', 'Totaldue:') !!}
+        </td>
+        <td>
+            <p>{{ $clientdata->totalDue }}</p>
+        </td>
+    </tr>
 
-<!-- Addedby Field -->
-<div class="col-sm-12">
-    {!! Form::label('addedBy', 'Addedby:') !!}
-    <p>{{ $clientdata->addedBy }}</p>
-</div>
+    <!-- Addedby Field -->
+    <tr>
+        <td class="col-sm-12">
+            {!! Form::label('addedBy', 'Addedby:') !!}
+        </td>
+        <td>
+            <p>{{ $clientdata->addedBy }}</p>
+        </td>
+    </tr>
 
-<!-- Updatedby Field -->
-<div class="col-sm-12">
-    {!! Form::label('updatedBy', 'Updatedby:') !!}
-    <p>{{ $clientdata->updatedBy }}</p>
-</div>
-
+    <!-- Updatedby Field -->
+    <tr>
+        <td class="col-sm-12">
+            {!! Form::label('updatedBy', 'Updatedby:') !!}
+        </td>
+        <td>
+            <p>{{ $clientdata->updatedBy }}</p>
+        </td>
+    </tr>
+</table>

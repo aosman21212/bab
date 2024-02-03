@@ -31,7 +31,7 @@
 <!-- Invoicedate Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('invoiceDate', 'Invoicedate:') !!}
-    {!! Form::text('invoiceDate', null, ['class' => 'form-control','id'=>'invoiceDate']) !!}
+    {!! Form::date('invoiceDate', null, ['class' => 'form-control','id'=>'invoiceDate']) !!}
 </div>
 
 @push('page_scripts')
