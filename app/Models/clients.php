@@ -66,7 +66,7 @@ class clients extends Model
 
     public static $rules = [
         'clientName' => 'required|string|max:255',
-        'clientLogo' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+        'clientLogo' => 'nullable|image|mimes:jpeg,png,jpg,gif',
         'contactName' => 'required|string|max:255',
         'mobileNo' => 'required|string|max:255',
         'email' => 'required|string|max:255',
@@ -94,6 +94,11 @@ class clients extends Model
     {
         return $this->hasMany(\App\Models\ProductService::class, 'clientId');
     }
+    public function babAcctManager()
+{
+    return $this->belongsTo(\App\Models\babacctmanagers::class, 'babAcctManagerId');
+}
+
 
     // Mutator for handling the 'clientLogo' attribute
     // public function setClientLogoAttribute($value)

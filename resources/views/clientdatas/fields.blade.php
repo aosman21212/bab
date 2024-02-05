@@ -1,6 +1,6 @@
 <!-- ProductServiceId Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('productServiceId', 'Product Service ID:') !!}
+    {!! Form::label('productServiceId', 'Service :') !!}
     {!! Form::select('productServiceId', $prod->pluck('productServiceName', 'id'), null, ['class' => 'form-control', 'placeholder' => 'Select ProductServiceName', 'id' => 'productServiceId', 'onchange' => 'fetchInitiatedQuantity()']) !!}
 </div>
 
@@ -18,7 +18,7 @@
 
 <!-- ClientId Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('clientId', 'Client ID:') !!}
+    {!! Form::label('clientId', 'Client name:') !!}
     {!! Form::select('clientId', $clients->pluck('clientName', 'id'), null, ['class' => 'form-control', 'placeholder' => 'Select clients']) !!}
 </div>
 

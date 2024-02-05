@@ -1,7 +1,7 @@
 <table class="table table-bordered">
     <tr>
         <td class="col-sm-4">
-            {!! Form::label('productServiceName', 'Productservicename:') !!}
+            {!! Form::label('productServiceName', 'name:') !!}
         </td>
         <td>
             <p>{{ $productservices->productServiceName }}</p>
@@ -10,7 +10,7 @@
 
     <tr>
         <td class="col-sm-4">
-            {!! Form::label('initiatedQuantity', 'Initiatedquantity:') !!}
+            {!! Form::label('initiatedQuantity', 'Initiated quantity:') !!}
         </td>
         <td>
             <p>{{ $productservices->initiatedQuantity }}</p>
@@ -19,7 +19,7 @@
 
     <tr>
         <td class="col-sm-4">
-            {!! Form::label('recurringFees', 'Recurringfees:') !!}
+            {!! Form::label('recurringFees', 'Recurring fees:') !!}
         </td>
         <td>
             <p>{{ $productservices->recurringFees }}</p>
@@ -28,7 +28,7 @@
 
     <tr>
         <td class="col-sm-4">
-            {!! Form::label('additionalFees', 'Additionalfees:') !!}
+            {!! Form::label('additionalFees', 'Additional fees:') !!}
         </td>
         <td>
             <p>{{ $productservices->additionalFees }}</p>
@@ -37,7 +37,7 @@
 
     <tr>
         <td class="col-sm-4">
-            {!! Form::label('recurringPeriod', 'Recurringperiod:') !!}
+            {!! Form::label('recurringPeriod', 'Recurring period:') !!}
         </td>
         <td>
             <p>{{ $productservices->recurringPeriod }}</p>
@@ -49,43 +49,36 @@
             {!! Form::label('addedBy', 'Addedby:') !!}
         </td>
         <td>
-            <p>{{ $productservices->addedBy }}</p>
+            <p>{{ $productservices->addedby->name }}</p>
         </td>
     </tr>
 
+  
+
     <tr>
         <td class="col-sm-4">
-            {!! Form::label('addedDate', 'Addeddate:') !!}
+            {!! Form::label('clientId', 'Client anme:') !!}
         </td>
         <td>
-            <p>{{ $productservices->addedDate }}</p>
+            <p>{{  $productservices->clientid->clientName }}</p>
         </td>
     </tr>
-
     <tr>
         <td class="col-sm-4">
-            {!! Form::label('clientId', 'Clientid:') !!}
+            {!! Form::label('vendorId', 'Vendor name :') !!}
         </td>
         <td>
-            <p>{{ $productservices->clientId }}</p>
+            <p>{{ $productservices->vendorid->vendorName }}</p>
         </td>
     </tr>
-
     <tr>
         <td class="col-sm-4">
-            {!! Form::label('productServiceStatus', 'Productservicestatus:') !!}
+            {!! Form::label('productServiceStatus', 'status:') !!}
         </td>
         <td>
             <p>{{ $productservices->productServiceStatus }}</p>
         </td>
     </tr>
 
-    <tr>
-        <td class="col-sm-4">
-            {!! Form::label('vendorId', 'Vendorid:') !!}
-        </td>
-        <td>
-            <p>{{ $productservices->vendorId }}</p>
-        </td>
-    </tr>
+    
 </table>

@@ -1,109 +1,61 @@
 <table class="table table-bordered">
-    <tr>
-        <td class="col-sm-12">
-            {!! Form::label('clientName', 'Clientname:') !!}
-        </td>
-        <td>
-            <p>{{ $clients->clientName }}</p>
-        </td>
-    </tr>
+    <tbody>
+        <tr>
+            <th>{!! Form::label('clientName', 'Clientname:') !!}</th>
+            <td>{{ $clients->clientName }}</td>
+        </tr>
 
-    <tr>
-        <td class="col-sm-12">
-            {!! Form::label('clientLogo', 'Clientlogo:') !!}
-        </td>
-        <td>
-            <p>{{ $clients->clientLogo }}</p>
-        </td>
-    </tr>
+        <tr>
+            <th>{!! Form::label('clientLogo', 'Clientlogo:') !!}</th>
+            <td><img src="{{ asset('storage/' . $clients->clientLogo) }}" alt="clientLogo Logo">
+</td>
+        </tr>
 
-    <tr>
-        <td class="col-sm-12">
-            {!! Form::label('contactName', 'Contactname:') !!}
-        </td>
-        <td>
-            <p>{{ $clients->contactName }}</p>
-        </td>
-    </tr>
+        <tr>
+            <th>{!! Form::label('contactName', 'Contactname:') !!}</th>
+            <td>{{ $clients->contactName }}</td>
+        </tr>
 
-    <tr>
-        <td class="col-sm-12">
-            {!! Form::label('mobileNo', 'Mobileno:') !!}
-        </td>
-        <td>
-            <p>{{ $clients->mobileNo }}</p>
-        </td>
-    </tr>
+        <tr>
+            <th>{!! Form::label('mobileNo', 'Mobileno:') !!}</th>
+            <td>{{ $clients->mobileNo }}</td>
+        </tr>
 
-    <tr>
-        <td class="col-sm-12">
-            {!! Form::label('email', 'Email:') !!}
-        </td>
-        <td>
-            <p>{{ $clients->email }}</p>
-        </td>
-    </tr>
+        <tr>
+            <th>{!! Form::label('email', 'Email:') !!}</th>
+            <td>{{ $clients->email }}</td>
+        </tr>
 
-    <tr>
-        <td class="col-sm-12">
-            {!! Form::label('babAcctManagerId', 'Babacctmanagerid:') !!}
-        </td>
-        <td>
-            <p>{{ $clients->babAcctManagerId }}</p>
-        </td>
-    </tr>
+        <tr>
+            <th>{!! Form::label('babAcctManagerId', 'AcctManagerName:') !!}</th>
+            <td>{{ $clients->babAcctManager->AcctManagerName }}</td>
+        </tr>
 
-    <tr>
-        <td class="col-sm-12">
-            {!! Form::label('orderDate', 'Orderdate:') !!}
-        </td>
-        <td>
-            <p>{{ $clients->orderDate }}</p>
-        </td>
-    </tr>
+        <tr>
+            <th>{!! Form::label('order Date', 'Orderdate:') !!}</th>
+            <td>{{ $clients->orderDate->format('Y-m-d') }}</td>
+        </tr>
 
-    <tr>
-        <td class="col-sm-12">
-            {!! Form::label('startDate', 'Startdate:') !!}
-        </td>
-        <td>
-            <p>{{ $clients->startDate }}</p>
-        </td>
-    </tr>
+        <tr>
+            <th>{!! Form::label('start Date', 'Startdate:') !!}</th>
+            <td>{{ $clients->startDate->format('Y-m-d') }}</td>
+        </tr>
 
-    <tr>
-        <td class="col-sm-12">
-            {!! Form::label('bill_to', 'Bill To:') !!}
-        </td>
-        <td>
-            <p>{{ $clients->bill_to }}</p>
-        </td>
-    </tr>
+        <tr>
+            <th>{!! Form::label('bill_to', 'Bill To:') !!}</th>
+            <td>{{ $clients->bill_to }}</td>
+        </tr>
 
-    <tr>
-        <td class="col-sm-12">
-            {!! Form::label('addedBy', 'Addedby:') !!}
-        </td>
-        <td>
-            <p>{{ $clients->addedBy }}</p>
-        </td>
-    </tr>
+        <tr>
+            <th>{!! Form::label('addedBy', 'Addedby:') !!}</th>
+            <td>{{  $clients->addedby->name }}</td>
+        </tr>
 
-    <tr>
-        <td class="col-sm-12">
-            {!! Form::label('addedDate', 'Addeddate:') !!}
-        </td>
-        <td>
-            <p>{{ $clients->addedDate }}</p>
-        </td>
-    </tr>
+     
 
-    <tr>
-        <td class="col-sm-12">
-            {!! Form::label('clientStatus', 'Clientstatus:') !!}
-        </td>
-        <td>
-            <p>{{ $clients->clientStatus }}</p>
-        </td>
-    </tr>
+        <tr>
+            <th>{!! Form::label('clientStatus', 'Clientstatus:') !!}</th>
+            <td>{{ $clients->clientStatus }}</td>
+        </tr>
+    </tbody>
 </table>

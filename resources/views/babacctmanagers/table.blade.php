@@ -6,11 +6,11 @@
         <table class="table" id="vendors-table">
         <thead>
         <tr>
-            <th>Acctmanagername</th>
-        <th>Acctmanagercontact</th>
-        <th>Acctmanageremail</th>
-        <th>Acctmanagerstatus</th>
-        <th>Addedby</th>
+            <th>name</th>
+        <th>contact</th>
+        <th>Email</th>
+        <th>status</th>
+        <th>Added by</th>
             <th colspan="3">Action</th>
         </tr>
         </thead>
@@ -20,8 +20,13 @@
                 <td>{{ $babacctmanagers->AcctManagerName }}</td>
             <td>{{ $babacctmanagers->AcctManagerContact }}</td>
             <td>{{ $babacctmanagers->AcctManagerEmail }}</td>
-            <td>{{ $babacctmanagers->AcctManagerStatus }}</td>
-            <td>{{ $babacctmanagers->addedBy }}</td>
+
+            <td>
+    <div class="orderDatatable-status d-inline-block">
+        <span class="order-bg-opacity-success text-success rounded-pill active"> {{ $babacctmanagers->AcctManagerStatus }}</span>
+    </div>
+</td>
+            <td>{{ $babacctmanagers->addedby->name}}</td>
 <td width="120">
     <ul class="orderDatatable_actions mb-0 d-flex flex-wrap float-right">
         <li>

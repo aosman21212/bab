@@ -12,7 +12,7 @@
 
                 <div class="breadcrumb-main">
                     <h4 class="text-capitalize breadcrumb-title">
-                    <h1>Editproductservices</h1>
+                    <h1>Edit services</h1>
 
                     </h4>
                     <div class="breadcrumb-action justify-content-center flex-wrap">

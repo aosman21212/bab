@@ -9,18 +9,15 @@
         <table class="table" id="vendors-table">
         <thead>
         <tr>
-            <th>Clientname</th>
-        <th>Clientlogo</th>
+            <th>name</th>
+        <th>logo</th>
         <th>Contactname</th>
-        <th>Mobileno</th>
+        <th>Mobile no</th>
         <th>Email</th>
-        <th>Babacctmanagerid</th>
-        <th>Orderdate</th>
-        <th>Startdate</th>
-        <th>Bill To</th>
-        <th>Addedby</th>
-        <th>Addeddate</th>
-        <th>Clientstatus</th>
+        <th>Acctmanager name </th>
+        <th>Order date</th>
+        <th>Start date</th>
+        <th>status</th>
             <th colspan="3">Action</th>
         </tr>
         </thead>
@@ -35,13 +32,14 @@
             <td>{{ $clients->contactName }}</td>
             <td>{{ $clients->mobileNo }}</td>
             <td>{{ $clients->email }}</td>
-            <td>{{ $clients->babAcctManagerId }}</td>
-            <td>{{ $clients->orderDate }}</td>
-            <td>{{ $clients->startDate }}</td>
-            <td>{{ $clients->bill_to }}</td>
-            <td>{{ $clients->addedBy }}</td>
-            <td>{{ $clients->addedDate }}</td>
-            <td>{{ $clients->clientStatus }}</td>
+            <td>{{ $clients->babAcctManager->AcctManagerName }}</td>
+            <td>{{ $clients->orderDate->format('Y-m-d') }}</td>
+           <td>{{ $clients->startDate->format('Y-m-d') }}</td>
+            <td>
+    <div class="orderDatatable-status d-inline-block">
+        <span class="order-bg-opacity-success text-success rounded-pill active"> {{ $clients->clientStatus }}</span>
+    </div>
+</td>
 <td width="120">
     <ul class="orderDatatable_actions mb-0 d-flex flex-wrap float-right">
         <li>

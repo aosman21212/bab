@@ -31,10 +31,13 @@ class vendorsController extends AppBaseController
     public function index(Request $request)
     {
         $vendors = $this->vendorsRepository->all();
-
-        return view('vendors.index')
-            ->with('vendors', $vendors);
+    
+        // Eager load the 'addedby' relationship
+        $vendors->load('addedby');
+    
+        return view('vendors.index')->with('vendors', $vendors);
     }
+    
 
     /**
      * Show the form for creating a new vendors.
@@ -80,16 +83,19 @@ class vendorsController extends AppBaseController
     public function show($id)
     {
         $vendors = $this->vendorsRepository->find($id);
-
+    
         if (empty($vendors)) {
             Flash::error('Vendors not found');
-
+    
             return redirect(route('vendors.index'));
         }
-
+    
+        // Eager load the 'addedby' relationship
+        $vendors->load('addedby');
+    
         return view('vendors.show')->with('vendors', $vendors);
     }
-
+    
     /**
      * Show the form for editing the specified vendors.
      *

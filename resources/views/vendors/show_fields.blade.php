@@ -1,20 +1,22 @@
 <table class="table table-bordered">
-                    <tbody>
-                        <tr>
-                            <th>Vendorname</th>
-                            <td>{{ $vendors->vendorName }}</td>
-                        </tr>
-                        <tr>
-                            <th>Vendorlogo</th>
-                            <td>{{ $vendors->vendorLogo }}</td>
-                        </tr>
-                        <tr>
-                            <th>Addedby</th>
-                            <td>{{ $vendors->addedBy }}</td>
-                        </tr>
-                        <tr>
-                            <th>Vendorstatus</th>
-                            <td>{{ $vendors->vendorStatus }}</td>
-                        </tr>
-                    </tbody>
-                </table>
+    <tbody>
+        <tr>
+            <th>name</th>
+            <td>{{ $vendors->vendorName }}</td>
+        </tr>
+        <tr>
+            <th>logo</th>
+            <td>
+                <img src="{{ asset('storage/' . $vendors->vendorLogo) }}" alt="Vendor Logo" class="img-thumbnail" style="max-width: 80px; max-height: 40px;">
+            </td>
+        </tr>
+        <tr>
+            <th>Added by</th>
+            <td>{{ $vendors->addedby->name }}</td>
+        </tr>
+        <tr>
+            <th>status</th>
+            <td>{{ $vendors->vendorStatus }}</td>
+        </tr>
+    </tbody>
+</table>

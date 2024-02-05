@@ -19,7 +19,7 @@
                                   
                                     <div class="action-btn">
                                     <a class="btn btn-primary float-right"
-                                    href="{{ route('clientdatas.index') }}">
+                                    href="{{ route('vendordatas.index') }}">
                         
 
 <i class="la la-plus"></i> back</a>

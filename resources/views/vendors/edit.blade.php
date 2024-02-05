@@ -1,44 +1,30 @@
 
 
 
-
-
-
-
-
 @extends('layouts.app')
 
 @section('content')
 
 
-<div class="container-fluid">
-        <div class="row">
-            <div class="col-lg-12">
 
-                <div class="breadcrumb-main">
-                    <h4 class="text-capitalize breadcrumb-title">
-                    <h1>Editvendors</h1>
 
-                    </h4>
-                    <div class="breadcrumb-action justify-content-center flex-wrap">
-                        <div class="action-btn">
+    
 
-                        </div>
-                    </div>
-                </div>
 
-            </div>
-        </div>
-        <div class="row">
 
-            <div class="col-lg-12">
-                <div class="card card-Vertical card-default card-md mb-4">
-               
-                    @include('adminlte-templates::common.errors')
 
-                    <div class="card-body py-md-30">
-                   
-                    {!! Form::model($vendors, ['route' => ['vendors.update', $vendors->id], 'method' => 'patch']) !!}
+
+<div class="col-lg-6">
+                            <div class="card card-default card-md mb-4">
+                                <div class="card-header">
+                                    <h6>Edit vendors</h6>
+                                </div>
+                                <div class="card-body">
+                                @include('adminlte-templates::common.errors')
+
+                                    <div class="basic-form-wrapper">
+                                    {!! Form::model($vendors, ['route' => ['vendors.update', $vendors->id], 'method' => 'patch']) !!}
+
 
 <div class="card-body">
     <div class="row">
@@ -53,12 +39,14 @@
 </div>
 
 {!! Form::close() !!}
-                    </div>
-                </div>
-                <!-- ends: .card -->
 
-            </div>
-        </div>
-    </div>
-@endsection
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- ends: .card -->
+
+                        </div>
+                        @endsection
+
+
 

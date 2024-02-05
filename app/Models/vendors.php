@@ -73,7 +73,7 @@ class vendors extends Model
 
     public function productServices()
     {
-        return $this->hasMany(\App\Models\ProductService::class, 'vendorId');
+        return $this->hasMany(\App\Models\productservices::class, 'vendorId');
     }
 
     // Mutator for handling the 'vendorLogo' attribute

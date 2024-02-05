@@ -1,31 +1,32 @@
 <!-- Vendorname Field -->
-<div class="form-group col-sm-6">
-    {!! Form::label('vendorName', 'Vendorname:') !!}
-    {!! Form::text('vendorName', null, ['class' => 'form-control','maxlength' => 255,'maxlength' => 255]) !!}
+<div class="form-group mb-25">
+    <label>vendorName</label>
+    <input type="text" name="vendorName" class="form-control form-control-lg" maxlength="255" placeholder="Duran Clayton" value="{{ old('vendorName', isset($vendors) ? $vendors->vendorName : '') }}">
 </div>
 
-<!-- Vendorlogo Field -->
-<!-- Vendorlogo Field -->
-<!-- Vendorlogo Field -->
-<div class="form-group col-sm-6">
-    {!! Form::label('vendorLogo', 'Vendorlogo:') !!}
+<!-- Vendor Logo Field -->
+<div class="form-group mb-25">
+    <label for="vendorLogo">Logo:</label>
     @if(isset($vendors) && isset($vendors->vendorLogo))
         <img src="{{ asset('storage/' . $vendors->vendorLogo) }}" alt="Vendor Logo" style="max-width: 100px;">
         <br>
     @endif
-    {!! Form::file('vendorLogo', ['class' => 'form-control']) !!}
+    <input type="file" name="vendorLogo" class="form-control form-control-lg">
 </div>
 
-<!-- Vendorstatus Field -->
-
-
-<!-- Acct Manager Status Field -->
-<div class="form-group col-sm-6">
-{!! Form::label('vendorStatus', 'Vendorstatus:') !!}
-    {!! Form::select('vendorStatus', ['Active' => 'Active', 'Inactive' => 'Inactive'], null, ['class' => 'form-control']) !!}
+<!-- Vendor Status Field -->
+<div class="form-group mb-25">
+    <label for="vendorStatus">Status:</label>
+    <select name="vendorStatus" class="form-control form-control-lg">
+        <option value="Active" {{ old('vendorStatus', isset($vendors) && $vendors->vendorStatus == 'Active' ? 'selected' : '') }}>Active</option>
+        <option value="Inactive" {{ old('vendorStatus', isset($vendors) && $vendors->vendorStatus == 'Inactive' ? 'selected' : '') }}>Inactive</option>
+    </select>
 </div>
+
 <!-- Hidden Added By Field -->
-<div class="form-group col-sm-6" style="display: none;">
-    {!! Form::label('addedBy','Added By:') !!}
-    {!! Form::number('addedBy', auth()->id(), ['class' => 'form-control', 'readonly' => 'readonly']) !!}
+<div  class="form-group mb-25"style="display: none;">
+    <label for="addedBy">Added By:</label>
+    <input type="number" name="addedBy" class="form-control form-control-lg" readonly value="{{ auth()->id() }}">
 </div>
+
+

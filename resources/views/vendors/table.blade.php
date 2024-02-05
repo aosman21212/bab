@@ -3,10 +3,10 @@
         <table class="table table-sm table-bordered" id="vendors-table">
             <thead class="thead-light">
                 <tr>
-                    <th>Vendor Name</th>
-                    <th>Vendor Logo</th>
+                    <th>Name</th>
+                    <th>Logo</th>
                     <th>Added By</th>
-                    <th>Vendor Status</th>
+                    <th>Status</th>
                     <th>Action</th>
                 </tr>
             </thead>
@@ -17,7 +17,7 @@
                         <td>
                             <img src="{{ asset('storage/' . $vendor->vendorLogo) }}" alt="Vendor Logo" class="img-thumbnail" style="max-width: 80px; max-height: 40px;">
                         </td>
-                        <td>{{ $vendor->addedBy }}</td>
+                        <td>{{ $vendor->addedby->name }}</td>
 <!-- Inside the loop -->
 <td>
     <div class="orderDatatable-status d-inline-block">

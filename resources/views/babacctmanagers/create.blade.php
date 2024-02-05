@@ -16,7 +16,7 @@
 
                 <div class="breadcrumb-main">
                     <h4 class="text-capitalize breadcrumb-title">
-                    <h1>Create babacctmanagers</h1>
+                    <h1>Create AcctManager</h1>
 
                     </h4>
                     <div class="breadcrumb-action justify-content-center flex-wrap">

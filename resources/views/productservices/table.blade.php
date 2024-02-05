@@ -6,16 +6,13 @@
         <table class="table" id="vendors-table">
         <thead>
         <tr>
-            <th>Productservicename</th>
-        <th>Initiatedquantity</th>
-        <th>Recurringfees</th>
-        <th>Additionalfees</th>
-        <th>Recurringperiod</th>
-        <th>Addedby</th>
-        <th>Addeddate</th>
-        <th>Clientid</th>
-        <th>Productservicestatus</th>
-        <th>Vendorid</th>
+            <th>name</th>
+        <th>Initiated quantity</th>
+        <th>Recurring fees</th>
+        <th>Additional fees</th>
+        <th>Recurring period</th>
+        <th>Client name</th>
+        <th> status</th>
             <th colspan="3">Action</th>
         </tr>
         </thead>
@@ -27,12 +24,14 @@
             <td>{{ $productservices->recurringFees }}</td>
             <td>{{ $productservices->additionalFees }}</td>
             <td>{{ $productservices->recurringPeriod }}</td>
-            <td>{{ $productservices->addedBy }}</td>
-            <td>{{ $productservices->addedDate }}</td>
-            <td>{{ $productservices->clientId }}</td>
-            <td>{{ $productservices->productServiceStatus }}</td>
-            <td>{{ $productservices->vendorId }}</td>
+            <td>{{  $productservices->clientid->clientName }}</td>
+            
 
+            <td>
+    <div class="orderDatatable-status d-inline-block">
+        <span class="order-bg-opacity-success text-success rounded-pill active"> {{ $productservices->productServiceStatus }}</span>
+    </div>
+</td>
 <td width="120">
     <ul class="orderDatatable_actions mb-0 d-flex flex-wrap float-right">
         <li>

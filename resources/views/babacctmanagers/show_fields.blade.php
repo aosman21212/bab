@@ -1,7 +1,7 @@
 <table class="table table-bordered">
     <tr>
         <td class="col-sm-12">
-            {!! Form::label('AcctManagerName', 'Acctmanagername:') !!}
+            {!! Form::label('AcctManagerName', 'Name:') !!}
         </td>
         <td>
             <p>{{ $babacctmanagers->AcctManagerName }}</p>
@@ -10,7 +10,7 @@
 
     <tr>
         <td class="col-sm-12">
-            {!! Form::label('AcctManagerContact', 'Acctmanagercontact:') !!}
+            {!! Form::label('AcctManagerContact', 'contact:') !!}
         </td>
         <td>
             <p>{{ $babacctmanagers->AcctManagerContact }}</p>
@@ -19,7 +19,7 @@
 
     <tr>
         <td class="col-sm-12">
-            {!! Form::label('AcctManagerEmail', 'Acctmanageremail:') !!}
+            {!! Form::label('AcctManagerEmail', 'email:') !!}
         </td>
         <td>
             <p>{{ $babacctmanagers->AcctManagerEmail }}</p>
@@ -28,7 +28,7 @@
 
     <tr>
         <td class="col-sm-12">
-            {!! Form::label('AcctManagerStatus', 'Acctmanagerstatus:') !!}
+            {!! Form::label('AcctManagerStatus', 'status:') !!}
         </td>
         <td>
             <p>{{ $babacctmanagers->AcctManagerStatus }}</p>
@@ -37,10 +37,10 @@
 
     <tr>
         <td class="col-sm-12">
-            {!! Form::label('addedBy', 'Addedby:') !!}
+            {!! Form::label('addedBy', 'Added by:') !!}
         </td>
         <td>
-            <p>{{ $babacctmanagers->addedBy }}</p>
+            <p>{{ $babacctmanagers->addedby->name }}</p>
         </td>
     </tr>
 </table>

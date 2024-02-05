@@ -65,7 +65,7 @@
             {!! Form::label('addedBy', 'Addedby:') !!}
         </td>
         <td>
-            <p>{{ $vendordata->addedBy }}</p>
+            <p>{{ $vendordata->addedby->name }}</p>
         </td>
     </tr>
 </table>

@@ -3,21 +3,22 @@
         <table class="table" id="vendors-table">
             <thead>
                 <tr>
-                    <th>Productserviceid</th>
-                    <th>Clientid</th>
+                    <th>service</th>
+                    <th>Client name</th>
                     <th>Quantity</th>
-                    <th>Additionalquantity</th>
-                    <th>Additionalcost</th>
-                    <th>Totalmonthlydue</th>
-                    <th>Outstandingbalance</th>
+                    <th>Additional quantity</th>
+                    <th>Additional cost</th>
+                    <th>Totalmonthly due</th>
+                    <th>Outstanding balance</th>
                     <th colspan="3">Action</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach($clientdatas as $clientdata)
                     <tr>
-                        <td>{{ $clientdata->productServiceId }}</td>
-                        <td>{{ $clientdata->clientId }}</td>
+                    <td>{{ $clientdata->productserviceid->productServiceName }}</td>
+<td>{{ $clientdata->clientid->clientName }}</td>
+
                         <td>{{ $clientdata->quantity }}</td>
                         <td>{{ $clientdata->additionalQuantity }}</td>
                         <td>{{ $clientdata->additionalCost }}</td>

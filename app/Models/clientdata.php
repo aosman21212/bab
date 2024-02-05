@@ -111,7 +111,7 @@ class clientdata extends Model
      **/
     public function clientid()
     {
-        return $this->belongsTo(\App\Models\Client::class, 'clientId');
+        return $this->belongsTo(\App\Models\clients::class, 'clientId');
     }
 
     /**
@@ -119,6 +119,6 @@ class clientdata extends Model
      **/
     public function productserviceid()
     {
-        return $this->belongsTo(\App\Models\ProductService::class, 'productServiceId');
+        return $this->belongsTo(\App\Models\productservices::class, 'productServiceId');
     }
 }

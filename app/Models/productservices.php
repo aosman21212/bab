@@ -102,15 +102,15 @@ class productservices extends Model
      **/
     public function clientid()
     {
-        return $this->belongsTo(\App\Models\Client::class, 'clientId');
+        return $this->belongsTo(\App\Models\clients::class, 'clientId');
     }
-
+  
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      **/
     public function vendorid()
     {
-        return $this->belongsTo(\App\Models\Vendor::class, 'vendorId');
+        return $this->belongsTo(\App\Models\vendors::class, 'vendorId');
     }
 
     /**
@@ -118,7 +118,7 @@ class productservices extends Model
      **/
     public function clientData()
     {
-        return $this->hasMany(\App\Models\ClientDatum::class, 'productServiceId');
+        return $this->hasMany(\App\Models\clientdata::class, 'productServiceId');
     }
 
     /**
@@ -126,6 +126,6 @@ class productservices extends Model
      **/
     public function vendorData()
     {
-        return $this->hasMany(\App\Models\VendorDatum::class, 'productServiceId');
+        return $this->hasMany(\App\Models\vendordata::class, 'productServiceId');
     }
 }

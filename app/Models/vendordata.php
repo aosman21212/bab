@@ -84,12 +84,12 @@ class vendordata extends Model
     {
         return $this->belongsTo(\App\Models\User::class, 'addedBy');
     }
-
+    
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      **/
     public function productserviceid()
     {
-        return $this->belongsTo(\App\Models\ProductService::class, 'productServiceId');
+        return $this->belongsTo(\App\Models\productservices::class, 'productServiceId');
     }
 }

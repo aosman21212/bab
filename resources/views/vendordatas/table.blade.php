@@ -5,26 +5,26 @@
         <table class="table" id="vendors-table">
         <thead>
         <tr>
-            <th>Productserviceid</th>
-        <th>Invoiceno</th>
-        <th>Invoiceamount</th>
-        <th>Invoicemonth</th>
-        <th>Invoiceyear</th>
-        <th>Invoicedate</th>
-        <th>Addedby</th>
+            <th>services</th>
+        <th>Invoice no</th>
+        <th>Invoice amount</th>
+        <th>Invoice month</th>
+        <th>year</th>
+        <th>date</th>
+        <th>Added by</th>
             <th colspan="3">Action</th>
         </tr>
         </thead>
         <tbody>
         @foreach($vendordatas as $vendordata)
             <tr>
-                <td>{{ $vendordata->productServiceId }}</td>
-            <td>{{ $vendordata->invoiceNo }}</td>
-            <td>{{ $vendordata->invoiceAmount }}</td>
-            <td>{{ $vendordata->invoiceMonth }}</td>
-            <td>{{ $vendordata->invoiceYear }}</td>
-            <td>{{ $vendordata->invoiceDate }}</td>
-            <td>{{ $vendordata->addedBy }}</td>
+                <td>{{ $vendordata->productserviceid->productServiceName}}</td>
+            <td>{{ $vendordata->invoiceNo}}</td>
+            <td>{{ $vendordata->invoiceAmount}}</td>
+            <td>{{ $vendordata->invoiceMonth}}</td>
+            <td>{{ $vendordata->invoiceYear}}</td>
+            <td>{{ $vendordata->invoiceDate->format('Y-m-d') }}</td>
+            <td>{{ $vendordata->addedby->name}}</td>
                        <!-- ... (your existing code) ... -->
 
 <td width="120">

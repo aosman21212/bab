@@ -2,20 +2,20 @@
     <!-- Productserviceid Field -->
     <tr>
         <td class="col-sm-12">
-            {!! Form::label('productServiceId', 'Productserviceid:') !!}
+            {!! Form::label('productServiceId', 'service:') !!}
         </td>
         <td>
-            <p>{{ $clientdata->productServiceId }}</p>
+            <p>{{ $clientdata->productserviceid->productServiceName }}</p>
         </td>
     </tr>
 
     <!-- Clientid Field -->
     <tr>
         <td class="col-sm-12">
-            {!! Form::label('clientId', 'Clientid:') !!}
+            {!! Form::label('clientId', 'Clien Name:') !!}
         </td>
         <td>
-            <p>{{ $clientdata->clientId }}</p>
+            <p>{{ $clientdata->clientid->clientName }}</p>
         </td>
     </tr>
 
@@ -105,17 +105,17 @@
             {!! Form::label('addedBy', 'Addedby:') !!}
         </td>
         <td>
-            <p>{{ $clientdata->addedBy }}</p>
+            <p>{{ $clientdata->addedby->name }}</p>
         </td>
     </tr>
 
     <!-- Updatedby Field -->
-    <tr>
+    <!-- <tr>
         <td class="col-sm-12">
             {!! Form::label('updatedBy', 'Updatedby:') !!}
         </td>
         <td>
             <p>{{ $clientdata->updatedBy }}</p>
         </td>
-    </tr>
+    </tr> -->
 </table>
