@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Requests\CreateclientsRequest;
 use App\Http\Requests\UpdateclientsRequest;
 use App\Models\babacctmanagers;
+use App\Models\clients;
+
 use App\Repositories\clientsRepository;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
@@ -31,7 +33,7 @@ class clientsController extends AppBaseController
      */
     public function index(Request $request)
     {
-        $clients = $this->clientsRepository->all();
+        $clients = $this->clientsRepository->paginate(2); // Assuming 'paginate' method is implemented in the repository
 
         return view('clients.index')
             ->with('clients', $clients);

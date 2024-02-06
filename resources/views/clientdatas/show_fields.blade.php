@@ -21,13 +21,13 @@
 
     <!-- Month Field -->
     <tr>
-        <td class="col-sm-12">
-            {!! Form::label('month', 'Month:') !!}
-        </td>
-        <td>
-            <p>{{ $clientdata->month }}</p>
-        </td>
-    </tr>
+    <td class="col-sm-12">
+        {!! Form::label('month', 'Month:') !!}
+    </td>
+    <td>
+        <p>{{ date('F', strtotime($clientdata->month)) }}</p>
+    </td>
+</tr>
 
     <!-- Year Field -->
     <tr>
@@ -52,7 +52,7 @@
     <!-- Additionalquantity Field -->
     <tr>
         <td class="col-sm-12">
-            {!! Form::label('additionalQuantity', 'Additionalquantity:') !!}
+            {!! Form::label('additionalQuantity', 'Additional quantity:') !!}
         </td>
         <td>
             <p>{{ $clientdata->additionalQuantity }}</p>
@@ -62,7 +62,7 @@
     <!-- Additionalcost Field -->
     <tr>
         <td class="col-sm-12">
-            {!! Form::label('additionalCost', 'Additionalcost:') !!}
+            {!! Form::label('additionalCost', 'Additional cost:') !!}
         </td>
         <td>
             <p>{{ $clientdata->additionalCost }}</p>
@@ -72,7 +72,7 @@
     <!-- Totalmonthlydue Field -->
     <tr>
         <td class="col-sm-12">
-            {!! Form::label('totalMonthlyDue', 'Totalmonthlydue:') !!}
+            {!! Form::label('totalMonthlyDue', 'Total monthly due:') !!}
         </td>
         <td>
             <p>{{ $clientdata->totalMonthlyDue }}</p>
@@ -82,7 +82,7 @@
     <!-- Outstandingbalance Field -->
     <tr>
         <td class="col-sm-12">
-            {!! Form::label('outstandingBalance', 'Outstandingbalance:') !!}
+            {!! Form::label('outstandingBalance', 'Outstanding balance:') !!}
         </td>
         <td>
             <p>{{ $clientdata->outstandingBalance }}</p>
@@ -92,7 +92,7 @@
     <!-- Totaldue Field -->
     <tr>
         <td class="col-sm-12">
-            {!! Form::label('totalDue', 'Totaldue:') !!}
+            {!! Form::label('totalDue', 'Total due:') !!}
         </td>
         <td>
             <p>{{ $clientdata->totalDue }}</p>

@@ -1,33 +1,34 @@
+
+
+
 <div class="form-group row">
-    <div class="col-sm-3 d-flex align-items-center">
-        <label for="element-text4" class="col-form-label color-dark fs-14 fw-500 align-center">
-            {!! Form::label('year', 'Year:') !!}
-        </label>
-    </div>
-    <div class="col-sm-9">
-        {!! Form::selectRange('year', date('Y'), date('Y') + 10, null, ['class' => 'form-control']) !!}
-    </div>
-</div>
+                                                        <div class="col-sm-3 d-flex aling-items-center">
+                                                            <label for="element-text4" class=" col-form-label color-dark fs-14 fw-500 align-center">        {!! Form::label('year', 'Year:') !!}
+
+</label>
+                                                        </div>
+                                                        <div class="col-sm-9">
+                                                        {!! Form::selectRange('year', date('Y'), date('Y') + 10, null, ['class' => 'form-control']) !!}
+                                                        </div>
+                                                    </div>
 <div class="form-group row">
-    <div class="col-sm-3 d-flex align-items-center">
-        <label for="element-text4" class="col-form-label color-dark fs-14 fw-500 align-center">
-            {!! Form::label('clientId', 'Client name:') !!}
-        </label>
-    </div>
-    <div class="col-sm-9">
-    {!! Form::select('clientId', $clients->pluck('clientName', 'id'), null, ['class' => 'form-control', 'placeholder' => 'Select clients', 'id' => 'clientId']) !!}
-    </div>
-</div>
+                                                        <div class="col-sm-3 d-flex aling-items-center">
+                                                            <label for="element-text4" class=" col-form-label color-dark fs-14 fw-500 align-center">    {!! Form::label('clientId', 'Client name:') !!}
+</label>
+                                                        </div>
+                                                        <div class="col-sm-9">
+                                                        {!! Form::select('clientId', $clients->pluck('clientName', 'id'), null, ['class' => 'form-control', 'placeholder' => 'Select clients']) !!}
+                                                        </div>
+                                                    </div>
 <div class="form-group row">
-    <div class="col-sm-3 d-flex align-items-center">
-        <label for="element-text4" class="col-form-label color-dark fs-14 fw-500 align-center">
-            {!! Form::label('productServiceId', 'Service :') !!}
-        </label>
-    </div>
-    <div class="col-sm-9">
-    {!! Form::select('productServiceId', [], null, ['class' => 'form-control', 'placeholder' => 'Select ProductServiceName', 'id' => 'productServiceId']) !!}
-    </div>
-</div>
+                                                        <div class="col-sm-3 d-flex aling-items-center">
+                                                            <label for="element-text4" class=" col-form-label color-dark fs-14 fw-500 align-center">    {!! Form::label('productServiceId', 'Service :') !!}
+</label>
+                                                        </div>
+                                                        <div class="col-sm-9">
+                                                        {!! Form::select('productServiceId', $prod->pluck('productServiceName', 'id'), null, ['class' => 'form-control', 'placeholder' => 'Select ProductServiceName', 'id' => 'productServiceId', 'onchange' => 'fetchInitiatedQuantity()']) !!}
+                                                        </div>
+                                                    </div>
                                                     <div class="form-group row">
                                                         <div class="col-sm-3 d-flex aling-items-center">
                                                             <label for="element-text4" class=" col-form-label color-dark fs-14 fw-500 align-center">    {!! Form::label('initiatedQuantity', 'Initiated Quantity:') !!}
@@ -135,35 +136,41 @@
 
 
 
-
-
-<!-- AddedBy Field -->
-<div class="form-group col-sm-6">
+                                                    <div class="form-group col-sm-6" style="display: none;">
     {!! Form::label('addedBy', 'Added by:') !!}
     {!! Form::number('addedBy', auth()->id(), ['class' => 'form-control', 'readonly' => 'readonly']) !!}
 </div>
 
 
-
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 <script>
-
-    
 function fetchInitiatedQuantity() {
+    var selectedClientId = document.getElementById('clientId').value;
     var selectedProductId = document.getElementById('productServiceId').value;
 
-    // Fetch initiatedQuantity and AdditionalFees based on the selected productServiceId
-    var initiatedQuantity = {!! json_encode($prod->pluck('initiatedQuantity', 'id')) !!}[selectedProductId] || 0;
-    var additionalFees = {!! json_encode($prod->pluck('additionalFees', 'id')) !!}[selectedProductId] || 0;
+    // Fetch initiatedQuantity and additionalFees based on selected clientId and productServiceId
+    var productServiceData = {!! json_encode($prod->groupBy('clientId')->map(function ($item) {
+        return $item->pluck('initiatedQuantity', 'id');
+    })) !!};
 
-    // Set the fetched initiatedQuantity and AdditionalFees to the respective fields
+    var initiatedQuantity = productServiceData[selectedClientId][selectedProductId] || 0;
+
+    var additionalFeesData = {!! json_encode($prod->groupBy('clientId')->map(function ($item) {
+        return $item->pluck('additionalFees', 'id');
+    })) !!};
+
+    var additionalFees = additionalFeesData[selectedClientId][selectedProductId] || 0;
+
+    // Set the fetched initiatedQuantity and additionalFees to the respective fields
     document.getElementById('initiatedQuantity').value = initiatedQuantity;
     document.getElementById('additionalFees').value = additionalFees;
 
     // Calculate AdditionalQuantity when initiatedQuantity and quantity change
     calculateAdditionalQuantity();
 }
+
+
 
 function calculateAdditionalQuantity() {
     var quantity = parseFloat(document.getElementById('quantity').value);
@@ -202,6 +209,30 @@ function calculateTotalDue() {
     var totalDue = totalMonthlyDue - outstandingBalance;
 
     document.getElementById('totalDue').value = totalDue;
+}
+function fetchProductServices() {
+    var selectedClientId = document.getElementById('clientId').value;
+
+    // Fetch product services based on the selected clientId
+    var productServicesData = {!! json_encode($prod->groupBy('clientId')->map(function ($item) {
+        return $item->pluck('productServiceName', 'id');
+    })) !!};
+
+    var productServices = productServicesData[selectedClientId] || {};
+
+    var selectProductService = document.getElementById('productServiceId');
+    selectProductService.innerHTML = ''; // Clear existing options
+
+    // Add new options based on the selected clientId
+    for (var id in productServices) {
+        var option = document.createElement('option');
+        option.value = id;
+        option.textContent = productServices[id];
+        selectProductService.appendChild(option);
+    }
+
+    // Trigger change event on productServiceId to fetch initiatedQuantity and additionalFees
+    selectProductService.dispatchEvent(new Event('change'));
 }
 
 

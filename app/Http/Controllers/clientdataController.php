@@ -33,6 +33,7 @@ class clientdataController extends AppBaseController
     {
         $clientdatas = $this->clientdataRepository->all();
 
+
         return view('clientdatas.index')
             ->with('clientdatas', $clientdatas);
     }
@@ -54,9 +55,12 @@ class clientdataController extends AppBaseController
          // Pass productServiceId to the view
          $productServiceId = $productService->id ?? null;
      
-         return view('clientdatas.create', compact('clients', 'prod', 'productServiceId'));
+         // Fetch product services based on the first client initially
+         $productServices = productservices::where('clientid', $clients->first()->id ?? null)->pluck('productServiceName', 'id');
+ 
+         // Pass productServices to the view
+         return view('clientdatas.create', compact('clients', 'prod', 'productServiceId', 'productServices'));
      }
-     
 
     /**
      * Store a newly created clientdata in storage.
@@ -169,4 +173,15 @@ class clientdataController extends AppBaseController
 
         return redirect(route('clientdatas.index'));
     }
+    public function fetchProductServices(Request $request)
+    {
+        $clientId = $request->input('clientId');
+
+        // Fetch product services based on the selected client
+        $productServices = productservices::where('clientid', $clientId)->pluck('productServiceName', 'id');
+
+        // You can return the options as JSON
+        return Response::json($productServices);
+    }
 }
+

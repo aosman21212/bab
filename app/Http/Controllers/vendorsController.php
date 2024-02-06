@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\CreatevendorsRequest;
 use App\Http\Requests\UpdatevendorsRequest;
+use App\Models\vendors;
 use App\Repositories\vendorsRepository;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
@@ -31,7 +32,8 @@ class vendorsController extends AppBaseController
     public function index(Request $request)
     {
         $vendors = $this->vendorsRepository->all();
-    
+        $vendors = vendors::paginate(5); // Paginate the results, 10 items per page
+
         // Eager load the 'addedby' relationship
         $vendors->load('addedby');
     
@@ -85,6 +87,7 @@ class vendorsController extends AppBaseController
         $vendors = $this->vendorsRepository->find($id);
     
         if (empty($vendors)) {
+
             Flash::error('Vendors not found');
     
             return redirect(route('vendors.index'));
@@ -189,4 +192,5 @@ public function update($id, UpdatevendorsRequest $request)
 
         return redirect(route('vendors.index'));
     }
+    
 }

@@ -38,3 +38,4 @@ Route::resource('vendordatas', App\Http\Controllers\vendordataController::class)
 
 
 Route::resource('clientdatas', App\Http\Controllers\clientdataController::class);
+Route::get('/fetch-product-services', 'clientdataController@fetchProductServices');

@@ -1,69 +1,135 @@
+<!-- Client Name Field -->
 <div class="form-group mb-3">
-                                    {!! Form::label('clientName', 'Clientname:', ['class' => 'form-label']) !!}
-                                    {!! Form::text('clientName', null, ['class' => 'form-control', 'maxlength' => 255]) !!}
-                                </div>
-
-                                <!-- Clientlogo Field
-                                <div class="form-group mb-3">
-                                    {!! Form::label('clientLogo', 'Clientlogo:', ['class' => 'form-label']) !!}
-                                    {!! Form::file('clientLogo', ['class' => 'form-control-file']) !!}
-                                </div> -->
-<!-- Vendor Logo Field -->
-<div class="form-group mb-25">
-    <label for="clientLogo">Logo:</label>
-    @if(isset($clients) && isset($clients->clientLogo))
-        <img src="{{ asset('storage/' . $clients->clientLogo) }}" alt="Vendor Logo" style="max-width: 100px;">
-        <br>
-    @endif
-    <input type="file" name="clientLogo" class="form-control form-control-lg">
-</div>
-                                <!-- Contactname Field -->
-                                <div class="form-group mb-3">
-                                    {!! Form::label('contactName', 'Contactname:', ['class' => 'form-label']) !!}
-                                    {!! Form::text('contactName', null, ['class' => 'form-control', 'maxlength' => 255]) !!}
-                                </div>
-
-                                <!-- Mobileno Field -->
-                                <div class="form-group mb-3">
-                                    {!! Form::label('mobileNo', 'Mobileno:', ['class' => 'form-label']) !!}
-                                    {!! Form::text('mobileNo', null, ['class' => 'form-control', 'maxlength' => 255]) !!}
-                                </div>
-
-                                <!-- Email Field -->
-                                <div class="form-group mb-3">
-                                    {!! Form::label('email', 'Email:', ['class' => 'form-label']) !!}
-                                    {!! Form::email('email', null, ['class' => 'form-control', 'maxlength' => 255]) !!}
-                                </div>
-
-                                <div class="form-group mb-3">
-                                    {!! Form::label('babAcctManagerId', 'AcctManager:', ['class' => 'form-label']) !!}
-                                    {!! Form::select('babAcctManagerId', $babacctmanagers->pluck('AcctManagerName', 'id'), null, ['class' => 'form-control', 'placeholder' => 'Select clients']) !!}
-                                </div>
-<!-- Orderdate Field -->
-<div class="form-group mb-3">
-    {!! Form::label('orderDate', 'Orderdate:', ['class' => 'form-label']) !!}
-    {!! Form::date('orderDate', isset($orderData) ? $orderData->orderDate : null, ['class' => 'form-control', 'id' => 'orderDate']) !!}
+    <div class="row">
+        <div class="col-sm-3 d-flex align-items-center">
+            {!! Form::label('clientName', 'Client Name:', ['class' => 'col-form-label color-dark fs-14 fw-500 align-center']) !!}
+        </div>
+        <div class="col-sm-9">
+            {!! Form::text('clientName', null, ['class' => 'form-control', 'maxlength' => 255]) !!}
+        </div>
+    </div>
 </div>
 
-<!-- Startdate Field -->
+<!-- Client Logo Field -->
 <div class="form-group mb-3">
-    {!! Form::label('startDate', 'Startdate:', ['class' => 'form-label']) !!}
-    {!! Form::date('startDate', isset($orderData) ? $orderData->startDate : null, ['class' => 'form-control', 'id' => 'startDate']) !!}
+    <div class="row">
+        <div class="col-sm-3 d-flex align-items-center">
+            {!! Form::label('clientLogo', 'Logo:', ['class' => 'col-form-label color-dark fs-14 fw-500 align-center']) !!}
+        </div>
+        <div class="col-sm-9">
+            @if(isset($clients) && isset($clients->clientLogo))
+                <img src="{{ asset('storage/' . $clients->clientLogo) }}" alt="Client Logo" style="max-width: 100px;">
+                <br>
+            @endif
+            {!! Form::file('clientLogo', ['class' => 'form-control-file']) !!}
+        </div>
+    </div>
 </div>
 
-                                <!-- Bill To Field -->
-                                <div class="form-group mb-3">
-                                    {!! Form::label('bill_to', 'Bill To:', ['class' => 'form-label']) !!}
-                                    {!! Form::text('bill_to', null, ['class' => 'form-control', 'maxlength' => 255]) !!}
-                                </div>
+<!-- Contact Name Field -->
+<div class="form-group mb-3">
+    <div class="row">
+        <div class="col-sm-3 d-flex align-items-center">
+            {!! Form::label('contactName', 'Contact Name:', ['class' => 'col-form-label color-dark fs-14 fw-500 align-center']) !!}
+        </div>
+        <div class="col-sm-9">
+            {!! Form::text('contactName', null, ['class' => 'form-control', 'maxlength' => 255]) !!}
+        </div>
+    </div>
+</div>
 
-                                <!-- Hidden Added By Field -->
-                                <div class="form-group mb-3" style="display: none;">
-                                    {!! Form::label('addedBy', 'Added By:', ['class' => 'form-label']) !!}
-                                    {!! Form::number('addedBy', auth()->id(), ['class' => 'form-control', 'readonly' => 'readonly']) !!}
-                                </div>
+<!-- Mobile Number Field -->
+<div class="form-group mb-3">
+    <div class="row">
+        <div class="col-sm-3 d-flex align-items-center">
+            {!! Form::label('mobileNo', 'Mobile Number:', ['class' => 'col-form-label color-dark fs-14 fw-500 align-center']) !!}
+        </div>
+        <div class="col-sm-9">
+            {!! Form::text('mobileNo', null, ['class' => 'form-control', 'maxlength' => 255]) !!}
+        </div>
+    </div>
+</div>
 
-                                <div class="form-group mb-3">
-                                    {!! Form::label('clientStatus', 'Status:', ['class' => 'form-label']) !!}
-                                    {!! Form::select('clientStatus', ['Active' => 'Active', 'Inactive' => 'Inactive'], null, ['class' => 'form-control']) !!}
-                                </div>
+<!-- Email Field -->
+<div class="form-group mb-3">
+    <div class="row">
+        <div class="col-sm-3 d-flex align-items-center">
+            {!! Form::label('email', 'Email:', ['class' => 'col-form-label color-dark fs-14 fw-500 align-center']) !!}
+        </div>
+        <div class="col-sm-9">
+            {!! Form::email('email', null, ['class' => 'form-control', 'maxlength' => 255]) !!}
+        </div>
+    </div>
+</div>
+
+<!-- Account Manager Field -->
+<div class="form-group mb-3">
+    <div class="row">
+        <div class="col-sm-3 d-flex align-items-center">
+            {!! Form::label('babAcctManagerId', 'Account Manager:', ['class' => 'col-form-label color-dark fs-14 fw-500 align-center']) !!}
+        </div>
+        <div class="col-sm-9">
+            {!! Form::select('babAcctManagerId', $babacctmanagers->pluck('AcctManagerName', 'id'), null, ['class' => 'form-control', 'placeholder' => 'Select Account Manager']) !!}
+        </div>
+    </div>
+</div>
+
+<!-- Order Date Field -->
+<div class="form-group mb-3">
+    <div class="row">
+        <div class="col-sm-3 d-flex align-items-center">
+            {!! Form::label('orderDate', 'Order Date:', ['class' => 'col-form-label color-dark fs-14 fw-500 align-center']) !!}
+        </div>
+        <div class="col-sm-9">
+            {!! Form::date('orderDate', isset($clients) ? $clients->orderDate : null, ['class' => 'form-control', 'id' => 'orderDate']) !!}
+        </div>
+    </div>
+</div>
+
+<!-- Start Date Field -->
+<div class="form-group mb-3">
+    <div class="row">
+        <div class="col-sm-3 d-flex align-items-center">
+            {!! Form::label('startDate', 'Start Date:', ['class' => 'col-form-label color-dark fs-14 fw-500 align-center']) !!}
+        </div>
+        <div class="col-sm-9">
+            {!! Form::date('startDate', isset($clients) ? $clients->startDate : null, ['class' => 'form-control', 'id' => 'startDate']) !!}
+        </div>
+    </div>
+</div>
+
+<!-- Bill To Field -->
+<div class="form-group mb-3">
+    <div class="row">
+        <div class="col-sm-3 d-flex align-items-center">
+            {!! Form::label('bill_to', 'Bill To:', ['class' => 'col-form-label color-dark fs-14 fw-500 align-center']) !!}
+        </div>
+        <div class="col-sm-9">
+            {!! Form::text('bill_to', null, ['class' => 'form-control', 'maxlength' => 255]) !!}
+        </div>
+    </div>
+</div>
+
+<!-- Hidden Added By Field -->
+<div class="form-group mb-3" style="display: none;">
+    <div class="row">
+        <div class="col-sm-3 d-flex align-items-center">
+            {!! Form::label('addedBy', 'Added By:', ['class' => 'col-form-label color-dark fs-14 fw-500 align-center']) !!}
+        </div>
+        <div class="col-sm-9">
+            {!! Form::number('addedBy', auth()->id(), ['class' => 'form-control', 'readonly' => 'readonly']) !!}
+        </div>
+    </div>
+</div>
+
+<!-- Client Status Field -->
+<div class="form-group mb-3">
+    <div class="row">
+        <div class="col-sm-3 d-flex align-items-center">
+            {!! Form::label('clientStatus', 'Status:', ['class' => 'col-form-label color-dark fs-14 fw-500 align-center']) !!}
+        </div>
+        <div class="col-sm-9">
+            {!! Form::select('clientStatus', ['Active' => 'Active', 'Inactive' => 'Inactive'], old('clientStatus', isset($clients) ? $clients->clientStatus : ''), ['class' => 'form-control form-control-lg']) !!}
+        </div>
+    </div>
+</div>

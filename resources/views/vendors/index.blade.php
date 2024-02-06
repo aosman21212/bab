@@ -1,13 +1,17 @@
+
+
+
 @extends('layouts.app')
 
 @section('content')
+
 
 <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="shop-breadcrumb">
                         <div class="breadcrumb-main">
-                                <h4 class="text-capitalize breadcrumb-title">Vendors</h4>
+                                <h4 class="text-capitalize breadcrumb-title">vendors </h4>
                                 <div class="breadcrumb-action justify-content-center flex-wrap">
                                     <div class="action-btn">
 
@@ -30,7 +34,7 @@
                                   
                                     <div class="action-btn">
                                     <a class="btn btn-primary float-right"
-                       href="{{ route('vendors.create') }}">
+                                    href="{{ route('vendors.create') }}">
                                             <i class="la la-plus"></i> Add New</a>
                                     </div>
                                 </div>
@@ -43,16 +47,31 @@
                 </div>
             </div>
             <div class="container-fluid">
+                 <div class="col-lg-12 mb-30">
             @include('flash::message')
 
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="userDatatable orderDatatable global-shadow border py-30 px-sm-30 px-20 bg-white radius-xl w-100 mb-30">
-                        @include('vendors.table')
+                        <div class="card">
+                           
+                            <div class="card-body p-0">
 
-                        </div><!-- End: .userDatatable -->
-                    </div><!-- End: .col -->
-                </div>
-            </div>
+                                     
+                            @include('vendors.table')
+           
+
+
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+
+
+
+
+                    
+       
+
 @endsection
 
