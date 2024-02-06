@@ -121,4 +121,5 @@ class clientdata extends Model
     {
         return $this->belongsTo(\App\Models\productservices::class, 'productServiceId');
     }
+    
 }

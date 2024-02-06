@@ -1,68 +1,141 @@
-<!-- ProductServiceId Field -->
-<div class="form-group col-sm-6">
-    {!! Form::label('productServiceId', 'Service :') !!}
-    {!! Form::select('productServiceId', $prod->pluck('productServiceName', 'id'), null, ['class' => 'form-control', 'placeholder' => 'Select ProductServiceName', 'id' => 'productServiceId', 'onchange' => 'fetchInitiatedQuantity()']) !!}
+<div class="form-group row">
+    <div class="col-sm-3 d-flex align-items-center">
+        <label for="element-text4" class="col-form-label color-dark fs-14 fw-500 align-center">
+            {!! Form::label('year', 'Year:') !!}
+        </label>
+    </div>
+    <div class="col-sm-9">
+        {!! Form::selectRange('year', date('Y'), date('Y') + 10, null, ['class' => 'form-control']) !!}
+    </div>
 </div>
+<div class="form-group row">
+    <div class="col-sm-3 d-flex align-items-center">
+        <label for="element-text4" class="col-form-label color-dark fs-14 fw-500 align-center">
+            {!! Form::label('clientId', 'Client name:') !!}
+        </label>
+    </div>
+    <div class="col-sm-9">
+    {!! Form::select('clientId', $clients->pluck('clientName', 'id'), null, ['class' => 'form-control', 'placeholder' => 'Select clients', 'id' => 'clientId']) !!}
+    </div>
+</div>
+<div class="form-group row">
+    <div class="col-sm-3 d-flex align-items-center">
+        <label for="element-text4" class="col-form-label color-dark fs-14 fw-500 align-center">
+            {!! Form::label('productServiceId', 'Service :') !!}
+        </label>
+    </div>
+    <div class="col-sm-9">
+    {!! Form::select('productServiceId', [], null, ['class' => 'form-control', 'placeholder' => 'Select ProductServiceName', 'id' => 'productServiceId']) !!}
+    </div>
+</div>
+                                                    <div class="form-group row">
+                                                        <div class="col-sm-3 d-flex aling-items-center">
+                                                            <label for="element-text4" class=" col-form-label color-dark fs-14 fw-500 align-center">    {!! Form::label('initiatedQuantity', 'Initiated Quantity:') !!}
+</label>
+                                                        </div>
+                                                        <div class="col-sm-9">
+                                                        {!! Form::number('initiatedQuantity', null, ['class' => 'form-control']) !!}
+                                                        </div>
+                                                    </div>
 
-<!-- InitiatedQuantity Field -->
-<div class="form-group col-sm-6">
-    {!! Form::label('initiatedQuantity', 'Initiated Quantity:') !!}
-    {!! Form::number('initiatedQuantity', null, ['class' => 'form-control']) !!}
-</div>
 
-<!-- AdditionalFees Field -->
-<div class="form-group col-sm-6">
-    {!! Form::label('additionalFees', 'Additional Fees:') !!}
-    {!! Form::number('additionalFees', null, ['class' => 'form-control', 'oninput' => 'calculateAdditionalCost()']) !!}
-</div>
+                                                    <div class="form-group row">
+                                                        <div class="col-sm-3 d-flex aling-items-center">
+                                                            <label for="element-text4" class=" col-form-label color-dark fs-14 fw-500 align-center">       {!! Form::label('additionalFees', 'Additional Fees:') !!}
 
-<!-- ClientId Field -->
-<div class="form-group col-sm-6">
-    {!! Form::label('clientId', 'Client name:') !!}
-    {!! Form::select('clientId', $clients->pluck('clientName', 'id'), null, ['class' => 'form-control', 'placeholder' => 'Select clients']) !!}
-</div>
+</label>
+                                                        </div>
+                                                        <div class="col-sm-9">
+                                                        {!! Form::number('additionalFees', null, ['class' => 'form-control', 'oninput' => 'calculateAdditionalCost()']) !!}
+                                                        </div>
+                                                    </div>
 
-<!-- Month Field -->
-<div class="form-group col-sm-6">
-    {!! Form::label('month', 'Month:') !!}
-    {!! Form::select('month', ['1' => 'January', '2' => 'February', '3' => 'March', '4' => 'April', '5' => 'May', '6' => 'June', '7' => 'July', '8' => 'August', '9' => 'September', '10' => 'October', '11' => 'November', '12' => 'December'], null, ['class' => 'form-control']) !!}
-</div>
+                                                    <div class="form-group row">
+                                                        <div class="col-sm-3 d-flex aling-items-center">
+                                                            <label for="element-text4" class=" col-form-label color-dark fs-14 fw-500 align-center">          {!! Form::label('month', 'Month:') !!}
 
-<!-- Year Field -->
-<div class="form-group col-sm-6">
-    {!! Form::label('year', 'Year:') !!}
-    {!! Form::selectRange('year', date('Y'), date('Y') + 10, null, ['class' => 'form-control']) !!}
-</div>
 
-<!-- Quantity Field -->
-<div class="form-group col-sm-6">
-    {!! Form::label('quantity', 'Quantity:') !!}
-    {!! Form::number('quantity', null, ['class' => 'form-control', 'oninput' => 'calculateAdditionalQuantity()']) !!}
-</div>
+</label>
+                                                        </div>
+                                                        <div class="col-sm-9">
+                                                        {!! Form::select('month', ['1' => 'January', '2' => 'February', '3' => 'March', '4' => 'April', '5' => 'May', '6' => 'June', '7' => 'July', '8' => 'August', '9' => 'September', '10' => 'October', '11' => 'November', '12' => 'December'], null, ['class' => 'form-control']) !!}
+                                                        </div>
+                                                    </div>
+                                                    
 
-<!-- AdditionalQuantity Field -->
-<div class="form-group col-sm-6">
-    {!! Form::label('additionalQuantity', 'Additional Quantity:') !!}
-    {!! Form::number('additionalQuantity', null, ['class' => 'form-control', 'readonly' => 'readonly', 'oninput' => 'calculateAdditionalCost()']) !!}
-</div>
 
-<!-- AdditionalCost Field -->
-<div class="form-group col-sm-6">
-    {!! Form::label('additionalCost', 'Additional Cost:') !!}
-    {!! Form::number('additionalCost', null, ['class' => 'form-control', 'readonly' => 'readonly']) !!}
-</div>
 
-<!-- TotalMonthlyDue Field -->
-<div class="form-group col-sm-6">
-    {!! Form::label('totalMonthlyDue', 'Total Monthly Due:') !!}
-    {!! Form::number('totalMonthlyDue', null, ['class' => 'form-control', 'readonly' => 'readonly']) !!}
-</div>
+                                                    <div class="form-group row">
+                                                        <div class="col-sm-3 d-flex aling-items-center">
+                                                            <label for="element-text4" class=" col-form-label color-dark fs-14 fw-500 align-center">                 {!! Form::label('quantity', 'Quantity:') !!}
 
-<!-- OutstandingBalance Field -->
-<div class="form-group col-sm-6">
-    {!! Form::label('outstandingBalance', 'Outstanding Balance:') !!}
-    {!! Form::number('outstandingBalance', null, ['class' => 'form-control']) !!}
+</label>
+                                                        </div>
+                                                        <div class="col-sm-9">
+                                                        {!! Form::number('quantity', null, ['class' => 'form-control', 'oninput' => 'calculateAdditionalQuantity()']) !!}
+                                                        </div>
+                                                    </div>
+
+
+
+                                                    <div class="form-group row">
+                                                        <div class="col-sm-3 d-flex aling-items-center">
+                                                            <label for="element-text4" class=" col-form-label color-dark fs-14 fw-500 align-center">          {!! Form::label('additionalQuantity', 'Additional Quantity:') !!}
+     </label>
+                                                        </div>
+                                                        <div class="col-sm-9">
+                                                        {!! Form::number('additionalQuantity', null, ['class' => 'form-control', 'readonly' => 'readonly', 'oninput' => 'calculateAdditionalCost()']) !!}
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group row">
+                                                        <div class="col-sm-3 d-flex aling-items-center">
+                                                            <label for="element-text4" class=" col-form-label color-dark fs-14 fw-500 align-center">      {!! Form::label('additionalCost', 'Additional Cost:') !!}
+ </label>
+                                                        </div>
+                                                        <div class="col-sm-9">
+                                                        {!! Form::number('additionalCost', null, ['class' => 'form-control', 'readonly' => 'readonly']) !!}
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div class="form-group row">
+                                                        <div class="col-sm-3 d-flex aling-items-center">
+                                                            <label for="element-text4" class=" col-form-label color-dark fs-14 fw-500 align-center">       {!! Form::label('totalMonthlyDue', 'Total Monthly Due:') !!}
+</label>
 </div>
+                                                        <div class="col-sm-9">
+                                                        {!! Form::number('totalMonthlyDue', null, ['class' => 'form-control', 'readonly' => 'readonly']) !!}
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group row">
+                                                        <div class="col-sm-3 d-flex aling-items-center">
+                                                            <label for="element-text4" class=" col-form-label color-dark fs-14 fw-500 align-center">          {!! Form::label('outstandingBalance', 'Outstanding Balance:') !!}
+
+</label>
+</div>
+                                                        <div class="col-sm-9">
+                                                        {!! Form::number('outstandingBalance', null, ['class' => 'form-control']) !!}
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group row">
+                                                        <div class="col-sm-3 d-flex aling-items-center">
+                                                            <label for="element-text4" class=" col-form-label color-dark fs-14 fw-500 align-center">              {!! Form::label('totalDue', 'Total Due:') !!}
+
+
+</label>
+</div>
+                                                        <div class="col-sm-9">
+                                                        {!! Form::number('totalDue', null, ['class' => 'form-control']) !!}
+                                                        </div>
+                                                    </div>
+
+
+
+
+
+
+
+
 
 <!-- AddedBy Field -->
 <div class="form-group col-sm-6">
@@ -70,15 +143,13 @@
     {!! Form::number('addedBy', auth()->id(), ['class' => 'form-control', 'readonly' => 'readonly']) !!}
 </div>
 
-<!-- TotalDue Field -->
-<div class="form-group col-sm-6">
-    {!! Form::label('totalDue', 'Total Due:') !!}
-    {!! Form::number('totalDue', null, ['class' => 'form-control']) !!}
-</div>
+
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 <script>
+
+    
 function fetchInitiatedQuantity() {
     var selectedProductId = document.getElementById('productServiceId').value;
 
@@ -98,10 +169,10 @@ function calculateAdditionalQuantity() {
     var quantity = parseFloat(document.getElementById('quantity').value);
     var initiatedQuantity = parseFloat(document.getElementById('initiatedQuantity').value);
 
-    var additionalQuantity = (quantity >= initiatedQuantity) ? 
-                             ((quantity - initiatedQuantity) / 1000).toString().toUpperCase() : 
-                             '0';
-    
+    var additionalQuantity = (quantity > initiatedQuantity) ?
+        Math.ceil((quantity - initiatedQuantity) / 1000) :
+        0;
+
     document.getElementById('additionalQuantity').value = additionalQuantity;
 
     // Calculate AdditionalCost when AdditionalQuantity or AdditionalFees changes
@@ -113,6 +184,7 @@ function calculateAdditionalQuantity() {
     // Calculate TotalDue whenever totalMonthlyDue changes
     calculateTotalDue();
 }
+
 
 function calculateAdditionalCost() {
     var additionalQuantity = parseFloat(document.getElementById('additionalQuantity').value);
@@ -136,3 +208,10 @@ function calculateTotalDue() {
 // Fetch the initiatedQuantity when the page loads
 window.onload = fetchInitiatedQuantity;
 </script>
+
+
+
+
+
+
+

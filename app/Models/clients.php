@@ -87,12 +87,12 @@ class clients extends Model
 
     public function clientData()
     {
-        return $this->hasMany(\App\Models\ClientDatum::class, 'clientId');
+        return $this->hasMany(\App\Models\clientdata::class, 'clientId');
     }
 
     public function productServices()
     {
-        return $this->hasMany(\App\Models\ProductService::class, 'clientId');
+        return $this->hasMany(\App\Models\productservices::class, 'clientId');
     }
     public function babAcctManager()
 {
