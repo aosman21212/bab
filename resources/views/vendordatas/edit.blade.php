@@ -7,7 +7,7 @@
 <div class="col-lg-6">
                             <div class="card card-default card-md mb-4">
                                 <div class="card-header">
-                                <h1>Edit Vendordata</h1>
+                                <h1>Edit             Vendor Invoice</h1>
                                 </div>
                                 <div class="card-body">
                                 @include('adminlte-templates::common.errors')

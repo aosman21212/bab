@@ -7,7 +7,8 @@
 
         <tr>
             <th>{!! Form::label('clientLogo', 'Clientlogo:') !!}</th>
-            <td><img src="{{ asset('storage/' . $clients->clientLogo) }}" alt="clientLogo Logo">
+            <td><img src="{{ asset('storage/' . $clients->clientLogo) }}" alt="clientLogo Logo" style="width: 100px; height: auto;">
+
 </td>
         </tr>
 

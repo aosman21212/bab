@@ -94,9 +94,12 @@
                         </tbody>
                     </table>
                 </div>
-                <div class="d-flex justify-content-end mt-30">
-                    <div class="pagination-total-text">1-{{ count($clientdatas) }} of {{ count($clientdatas) }} items</div>
-                    <!-- Add pagination if needed -->
-                </div>
+              
+                <div class="d-flex justify-content-between align-items-center mt-30">
+        <div class="pagination-total-text">1-{{ count($clientdatas) }} of {{ count($clientdatas) }} items</div>
+        <div>
+            {{ $clientdatas->links() }}
+        </div>
+    </div>
             </div>
         </div>

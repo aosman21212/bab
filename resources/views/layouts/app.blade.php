@@ -81,7 +81,7 @@
 
     <!-- endinject -->
 
-    <link rel="icon" type="im" sizes="16x16" href="img/favicon.png">
+    <link rel="icon" type="{{ asset('img/logo.png') }}" sizes="16x16" href="{{ asset('img/logo.png') }}">
     
     @stack('third_party_stylesheets')
 
@@ -784,7 +784,7 @@
                                     </div>
                                     <div>
                                         <h6>{{ Auth::user()->name }}</h6>
-                                        <span>Member since {{ Auth::user()->created_at->format('M. Y') }}</span>
+                                        <!-- <span>Member since {{ Auth::user()->created_at->format('M. Y') }}</span> -->
                                     </div>
                                 </div>
                                 <div class="nav-author__options">

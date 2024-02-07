@@ -1,66 +1,156 @@
-
-
-<div class="container mt-4">
-    <div class="table-responsive" style="overflow-x: auto;">
-        <table class="table" id="vendors-table">
-        <thead>
-        <tr>
-            <th>services</th>
-        <th>Invoice no</th>
-        <th>Invoice amount</th>
-        <th>Invoice month</th>
-        <th>year</th>
-        <th>date</th>
-        <th>Added by</th>
-            <th colspan="3">Action</th>
-        </tr>
-        </thead>
-        <tbody>
-        @foreach($vendordatas as $vendordata)
-            <tr>
-                <td>{{ $vendordata->productserviceid->productServiceName}}</td>
-            <td>{{ $vendordata->invoiceNo}}</td>
-            <td>{{ $vendordata->invoiceAmount}}</td>
-            <td>{{ $vendordata->invoiceMonth}}</td>
-            <td>{{ $vendordata->invoiceYear}}</td>
-            <td>{{ $vendordata->invoiceDate->format('Y-m-d') }}</td>
-            <td>{{ $vendordata->addedby->name}}</td>
-                       <!-- ... (your existing code) ... -->
-
-<td width="120">
-    <ul class="orderDatatable_actions mb-0 d-flex flex-wrap float-right">
-        <li>
-            <a href="{{route('vendordatas.show', [$vendordata->id]) }}" class="view">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-eye"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
-            </a>
-        </li>
-        <li>
-            <a href="{{ route('vendordatas.edit', [$vendordata->id]) }}" class="edit">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-edit"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
-            </a>
-        </li>
-        <li>
-            <a href="#" class="remove" onclick="event.preventDefault(); document.getElementById('delete-form-{{ $vendordata->id }}').submit();">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trash-2">
-                    <polyline points="3 6 5 6 21 6"></polyline>
-                    <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
-                    <line x1="10" y1="11" x2="10" y2="17"></line>
-                    <line x1="14" y1="11" x2="14" y2="17"></line>
-                </svg>
-            </a>
-            {!! Form::open(['route' => ['vendordatas.destroy', $vendordata->id], 'method' => 'delete', 'id' => 'delete-form-'.$vendordata->id, 'style' => 'display:none;']) !!}
-                {!! Form::hidden('_method', 'DELETE') !!}
-                {!! Form::hidden('_token', csrf_token()) !!}
-            {!! Form::close() !!}
-        </li>
-    </ul>
-</td>
-
-<!-- ... (continue with your existing code) ... -->
-
-                    </tr>
+<div class="table4 table5 p-25 bg-white">
+    <div class="table-responsive">
+        <table class="table mb-0">
+            <thead>
+                <tr class="userDatatable-header">
+                    <th>
+                        <div class="userDatatable-title">
+                            Name
+                        </div>
+                    </th>
+                    <th>
+                        <div class="userDatatable-title">
+                            Invoice no
+                        </div>
+                    </th>
+                    <th>
+                        <div class="userDatatable-title">
+                            Invoice amount
+                        </div>
+                    </th>
+                    <th>
+                        <div class="userDatatable-title">
+                            Invoice month
+                        </div>
+                    </th>
+                    <th>
+                        <div class="userDatatable-title">
+                            Year
+                        </div>
+                    </th>
+                    <th>
+                        <div class="userDatatable-title">
+                            Date
+                        </div>
+                    </th>
+                    <th>
+                        <div class="userDatatable-title">
+                            Added By
+                        </div>
+                    </th>
+                    <th>
+                        <div class="userDatatable-title">
+                            Action
+                        </div>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach($vendordatas as $vendordata)
+                <tr>
+                    <td>
+                        <div class="userDatatable-content">
+                            {{ $vendordata->productserviceid->productServiceName }}
+                        </div>
+                    </td>
+                    <td>
+                        <div class="userDatatable-content">
+                            {{ $vendordata->invoiceNo }}
+                        </div>
+                    </td>
+                    <td>
+                        <div class="userDatatable-content">
+                            {{ $vendordata->invoiceAmount }}
+                        </div>
+                    </td>
+                    <td>
+                        <div class="userDatatable-content">
+                            {{ $vendordata->invoiceMonth }}
+                        </div>
+                    </td>
+                    <td>
+                        <div class="userDatatable-content">
+                            {{ $vendordata->invoiceYear }}
+                        </div>
+                    </td>
+                    <td>
+                        <div class="userDatatable-content">
+                            {{ $vendordata->invoiceDate->format('Y-m-d') }}
+                        </div>
+                    </td>
+                    <td>
+                        <div class="userDatatable-content">
+                            {{ $vendordata->addedby->name }}
+                        </div>
+                    </td>
+                    <td>
+                        <div class="userDatatable-content">
+                            <ul class="orderDatatable_actions mb-0 d-flex flex-wrap float-right">
+                                <li>
+                                    <a href="{{ route('vendordatas.show', [$vendordata->id]) }}" class="view">
+                                        <i class="fas fa-eye"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{{ route('vendordatas.edit', [$vendordata->id]) }}" class="edit">
+                                        <i class="fas fa-edit"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="remove-btn" onclick="event.preventDefault(); document.getElementById('delete-form-{{ $vendordata->id }}').submit();">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </a>
+                                    <form action="{{ route('vendordatas.destroy', [$vendordata->id]) }}" method="POST" id="delete-form-{{ $vendordata->id }}" style="display: none;">
+                                        @csrf
+                                        @method('DELETE')
+                                    </form>
+                                </li>
+                            </ul>
+                        </div>
+                    </td>
+                </tr>
                 @endforeach
             </tbody>
         </table>
     </div>
+    <div class="d-flex justify-content-between align-items-center mt-30">
+        <div class="pagination-total-text">1-{{ count($vendordatas) }} of {{ count($vendordatas) }} items</div>
+        <div>
+            {{ $vendordatas->links() }}
+        </div>
+    </div>
 </div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('.remove-btn').click(function() {
+            var vendorId = $(this).data('id');
+            if (confirm('Are you sure you want to delete this vendor?')) {
+                $.ajax({
+                    url: '{{ url('vendordatas') }}/' + vendorId,
+                    type: 'DELETE',
+                    data: {
+                        "_token": "{{ csrf_token() }}"
+                    },
+                    success: function(result) {
+                        // Refresh page or update UI as needed
+                        location.reload();
+                    },
+                    error: function(xhr, status, error) {
+                        if (xhr.status == 409) {
+                            var errorMessage = 'Illuminate\\Database\\QueryException\n' +
+                                'SQLSTATE[23000]: Integrity constraint violation: 1451 ' +
+                                'Cannot delete or update a parent row: a foreign key constraint fails (`oopss`.`product_services`, ' +
+                                'CONSTRAINT `product_services_vendorid_foreign` FOREIGN KEY (`vendorId`) REFERENCES `vendors` (`id`)) ' +
+                                '(SQL: delete from `vendordatas` where `id` = ' + vendorId + ')';
+                            alert(errorMessage);
+                        } else {
+                            alert('An error occurred while deleting the vendor.');
+                        }
+                    }
+                });
+            }
+        });
+    });
+</script>

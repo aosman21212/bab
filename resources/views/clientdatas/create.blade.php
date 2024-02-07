@@ -19,25 +19,12 @@
 
                                         
                                     </div>
-                                    <div class="dropdown action-btn">
-                                        <button class="btn btn-sm btn-default btn-white dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <i class="la la-download"></i> Export
-                                        </button>
-                                        <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                                            <span class="dropdown-item">Export With</span>
-                                            <div class="dropdown-divider"></div>
-                                            <a href="" class="dropdown-item">
-                                                <i class="la la-print"></i> Excel</a>
-                                            <a href="" class="dropdown-item">
-                                                <i class="la la-file-pdf"></i> PDF</a>
-                                          
-                                        </div>
-                                    </div>
+                                    
                                   
                                     <div class="action-btn">
                                     <a class="btn btn-primary float-right"
-                                    href="{{ route('clientdatas.create') }}">
-                                            <i class="la la-plus"></i> Add New</a>
+                                    href="{{ route('clientdatas.index') }}">
+                                            <i class="la la-plus"></i> back</a>
                                     </div>
                                 </div>
                             </div>

@@ -8,6 +8,11 @@
                             </a>
                             <ul>
                             <li>
+        <a href="{{ route('babacctmanagers.index') }}" class="{{ Request::is('babacctmanagers*') ? 'active' : '' }}">
+            BAB Acct. Manager
+        </a>
+    </li>
+                            <li>
         <a href="{{ route('vendors.index') }}" class="{{ Request::is('vendors*') ? 'active' : '' }}">
             Vendors
         </a>
@@ -17,27 +22,24 @@
             Clients
         </a>
     </li>
-    <li>
-        <a href="{{ route('babacctmanagers.index') }}" class="{{ Request::is('babacctmanagers*') ? 'active' : '' }}">
-            AcctManager
-        </a>
-    </li>
+ 
  
     <li>
         <a href="{{ route('productservices.index') }}" class="{{ Request::is('productservices*') ? 'active' : '' }}">
-            services
-        </a>
-    </li>
-    <li>
-        <a href="{{ route('vendordatas.index') }}" class="{{ Request::is('vendordatas*') ? 'active' : '' }}">
-            Vendor report
+            Client Services
         </a>
     </li>
     <li>
         <a href="{{ route('clientdatas.index') }}" class="{{ Request::is('clientdatas*') ? 'active' : '' }}">
-            Client report
+            Client Data
         </a>
     </li>
+    <li>
+        <a href="{{ route('vendordatas.index') }}" class="{{ Request::is('vendordatas*') ? 'active' : '' }}">
+            Vendor Invoice
+        </a>
+    </li>
+
    
 </ul>
 

@@ -8,7 +8,7 @@
                     <div class="col-lg-12">
                         <div class="shop-breadcrumb">
                         <div class="breadcrumb-main">
-                                <h4 class="text-capitalize breadcrumb-title">client datas</h4>
+                                <h4 class="text-capitalize breadcrumb-title">client Data</h4>
                                 <div class="breadcrumb-action justify-content-center flex-wrap">
                                     <div class="action-btn">
 

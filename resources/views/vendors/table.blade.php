@@ -67,15 +67,19 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#" class="remove" onclick="event.preventDefault(); document.getElementById('delete-form-{{ $vendor->id }}').submit();">
-                                        <i class="fas fa-trash-alt"></i>
-                                    </a>
-                                    <form action="{{ route('vendors.destroy', [$vendor->id]) }}" method="POST" id="delete-form-{{ $vendor->id }}" style="display: none;">
-                                        @csrf
-                                        @method('DELETE')
-                                    </form>
-                                </li>
+    <a href="#" class="remove-btn" data-id="{{ $vendor->id }}">
+        <i class="fas fa-trash-alt"></i>
+    </a>
+    <form action="{{ route('vendors.destroy', [$vendor->id]) }}" method="POST" id="delete-form-{{ $vendor->id }}" style="display: none;">
+        @csrf
+        @method('DELETE')
+    </form>
+</li
                             </ul>
+                            <form action="{{ route('vendors.destroy', [$vendor->id]) }}" method="POST" id="delete-form-{{ $vendor->id }}" style="display: none;">
+                                @csrf
+                                @method('DELETE')
+                            </form>
                         </div>
                     </td>
                 </tr>
@@ -90,3 +94,38 @@
         </div>
     </div>
 </div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('.remove-btn').click(function() {
+            var vendorId = $(this).data('id');
+            if (confirm('Are you sure you want to delete this vendor?')) {
+                $.ajax({
+                    url: '{{ url('vendors') }}/' + vendorId,
+                    type: 'DELETE',
+                    data: {
+                        "_token": "{{ csrf_token() }}"
+                    },
+                    success: function(result) {
+                        // Refresh page or update UI as needed
+                        location.reload();
+                    },
+                    error: function(xhr, status, error) {
+                        if (xhr.status == 409) {
+                            var errorMessage = 'Illuminate\\Database\\QueryException\n' +
+                                'SQLSTATE[23000]: Integrity constraint violation: 1451 ' +
+                                'Cannot delete or update a parent row: a foreign key constraint fails (`oopss`.`product_services`, ' +
+                                'CONSTRAINT `product_services_vendorid_foreign` FOREIGN KEY (`vendorId`) REFERENCES `vendors` (`id`)) ' +
+                                '(SQL: delete from `vendors` where `id` = ' + vendorId + ')';
+                            alert(errorMessage);
+                        } else {
+                            alert('An error occurred while deleting the vendor.');
+                        }
+                    }
+                });
+            }
+        });
+    });
+</script>
+

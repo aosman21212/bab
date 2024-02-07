@@ -9,6 +9,7 @@ use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
 use Flash;
 use Response;
+use App\Models\productservices;
 use App\Models\clients;
 use App\Models\vendors;
 class productservicesController extends AppBaseController
@@ -31,6 +32,7 @@ class productservicesController extends AppBaseController
     public function index(Request $request)
     {
         $productservices = $this->productservicesRepository->all();
+        $productservices = productservices::paginate(10); // Assuming you want 10 items per page
 
         return view('productservices.index')
             ->with('productservices', $productservices);

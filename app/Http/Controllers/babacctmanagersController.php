@@ -29,11 +29,11 @@ class babacctmanagersController extends AppBaseController
      */
     public function index(Request $request)
     {
-        $babacctmanagers = $this->babacctmanagersRepository->all();
-
-        return view('babacctmanagers.index')
-            ->with('babacctmanagers', $babacctmanagers);
+        $babacctmanagers = $this->babacctmanagersRepository->paginate(3); // Or any number you prefer
+    
+        return view('babacctmanagers.index')->with('babacctmanagers', $babacctmanagers);
     }
+    
 
     /**
      * Show the form for creating a new babacctmanagers.

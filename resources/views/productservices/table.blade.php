@@ -1,71 +1,116 @@
-
-
-
-<div class="container mt-4">
-    <div class="table-responsive" style="overflow-x: auto;">
-        <table class="table" id="vendors-table">
-        <thead>
-        <tr>
-            <th>name</th>
-        <th>Initiated quantity</th>
-        <th>Recurring fees</th>
-        <th>Additional fees</th>
-        <th>Recurring period</th>
-        <th>Client name</th>
-        <th> status</th>
-            <th colspan="3">Action</th>
-        </tr>
-        </thead>
-        <tbody>
-        @foreach($productservices as $productservices)
-            <tr>
-                <td>{{ $productservices->productServiceName }}</td>
-            <td>{{ $productservices->initiatedQuantity }}</td>
-            <td>{{ $productservices->recurringFees }}</td>
-            <td>{{ $productservices->additionalFees }}</td>
-            <td>{{ $productservices->recurringPeriod }}</td>
-            <td>{{  $productservices->clientid->clientName }}</td>
-            
-
-            <td>
-    <div class="orderDatatable-status d-inline-block">
-        <span class="order-bg-opacity-success text-success rounded-pill active"> {{ $productservices->productServiceStatus }}</span>
-    </div>
-</td>
-<td width="120">
-    <ul class="orderDatatable_actions mb-0 d-flex flex-wrap float-right">
-        <li>
-            <a href="{{route('productservices.show', [$productservices->id]) }}" class="view">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-eye"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
-            </a>
-        </li>
-        <li>
-            <a href="{{ route('productservices.edit', [$productservices->id]) }}" class="edit">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-edit"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
-            </a>
-        </li>
-        <li>
-            <a href="#" class="remove" onclick="event.preventDefault(); document.getElementById('delete-form-{{ $productservices->id }}').submit();">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trash-2">
-                    <polyline points="3 6 5 6 21 6"></polyline>
-                    <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
-                    <line x1="10" y1="11" x2="10" y2="17"></line>
-                    <line x1="14" y1="11" x2="14" y2="17"></line>
-                </svg>
-            </a>
-            {!! Form::open(['route' => ['productservices.destroy', $productservices->id], 'method' => 'delete', 'id' => 'delete-form-'.$productservices->id, 'style' => 'display:none;']) !!}
-                {!! Form::hidden('_method', 'DELETE') !!}
-                {!! Form::hidden('_token', csrf_token()) !!}
-            {!! Form::close() !!}
-        </li>
-    </ul>
-</td>
-
-<!-- ... (continue with your existing code) ... -->
-
-                    </tr>
+<div class="table4 table5 p-25 bg-white">
+    <div class="table-responsive">
+        <table class="table mb-0">
+            <thead>
+                <tr class="userDatatable-header">
+                    <th>
+                        <div class="userDatatable-title">
+                            Name
+                        </div>
+                    </th>
+                    <th>
+                        <div class="userDatatable-title">
+                            Initiated Quantity
+                        </div>
+                    </th>
+                    <th>
+                        <div class="userDatatable-title">
+                            Recurring Fees
+                        </div>
+                    </th>
+                  
+                    <th>
+                        <div class="userDatatable-title">
+                            Recurring Period
+                        </div>
+                    </th>
+                    <th>
+                        <div class="userDatatable-title">
+                            Client Name
+                        </div>
+                    </th>
+                    <th>
+                        <div class="userDatatable-title">
+                            Status
+                        </div>
+                    </th>
+                    <th>
+                        <div class="userDatatable-title">
+                            Action
+                        </div>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach($productservices as $productservice)
+                <tr>
+                    <td>
+                        <div class="userDatatable-content">
+                            {{ $productservice->productServiceName }}
+                        </div>
+                    </td>
+                    <td>
+                        <div class="userDatatable-content">
+                            {{ $productservice->initiatedQuantity }}
+                        </div>
+                    </td>
+                    <td>
+                        <div class="userDatatable-content">
+                            {{ $productservice->recurringFees }}
+                        </div>
+                    </td>
+                 
+                    <td>
+                        <div class="userDatatable-content">
+                            {{ $productservice->recurringPeriod }}
+                        </div>
+                    </td>
+                    <td>
+                        <div class="userDatatable-content">
+                            {{ $productservice->clientid->clientName }}
+                        </div>
+                    </td>
+                    <td>
+                        <div class="userDatatable-content">
+                            <span class="order-bg-opacity-success text-success rounded-pill active">{{ $productservice->productServiceStatus }}</span>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="userDatatable-content">
+                            <ul class="orderDatatable_actions mb-0 d-flex flex-wrap float-right">
+                                <li>
+                                    <a href="{{ route('productservices.show', [$productservice->id]) }}" class="view">
+                                        <i class="fas fa-eye"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{{ route('productservices.edit', [$productservice->id]) }}" class="edit">
+                                        <i class="fas fa-edit"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="remove" onclick="event.preventDefault(); document.getElementById('delete-form-{{ $productservice->id }}').submit();">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </a>
+                                    <form action="{{ route('productservices.destroy', [$productservice->id]) }}" method="POST" id="delete-form-{{ $productservice->id }}" style="display: none;">
+                                        @csrf
+                                        @method('DELETE')
+                                    </form>
+                                </li>
+                            </ul>
+                        </div>
+                    </td>
+                </tr>
                 @endforeach
             </tbody>
         </table>
     </div>
+  
+    <div class="d-flex justify-content-between align-items-center mt-30">
+        <div class="pagination-total-text">1-{{ count($productservices) }} of {{ count($productservices) }} items</div>
+        <div>
+            {{ $productservices->links() }}
+        </div>
+    </div>
+    
 </div>

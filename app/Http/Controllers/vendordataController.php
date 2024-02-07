@@ -8,6 +8,8 @@ use App\Repositories\vendordataRepository;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
 use App\Models\productservices;
+use App\Models\vendordata;
+
 use Flash;
 use Response;
 
@@ -31,6 +33,7 @@ class vendordataController extends AppBaseController
     public function index(Request $request)
     {
         $vendordatas = $this->vendordataRepository->all();
+        $vendordatas = vendordata::paginate(5); // Paginate the results, 10 items per page
 
         return view('vendordatas.index')
             ->with('vendordatas', $vendordatas);

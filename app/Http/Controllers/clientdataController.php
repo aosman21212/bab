@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\CreateclientdataRequest;
 use App\Http\Requests\UpdateclientdataRequest;
+use App\Models\clientdata;
 use App\Repositories\clientdataRepository;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
@@ -33,6 +34,7 @@ class clientdataController extends AppBaseController
     {
         $clientdatas = $this->clientdataRepository->all();
 
+        $clientdatas = clientdata::paginate(8); // Paginate the results, 10 items per page
 
         return view('clientdatas.index')
             ->with('clientdatas', $clientdatas);
