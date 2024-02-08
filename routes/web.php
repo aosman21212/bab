@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,4 +39,21 @@ Route::resource('vendordatas', App\Http\Controllers\vendordataController::class)
 
 
 Route::resource('clientdatas', App\Http\Controllers\clientdataController::class);
-Route::get('/fetch-product-services', 'clientdataController@fetchProductServices');
+// Route::get('/fetch-product-services', 'clientdataController@fetchProductServices');
+
+Route::group(['middleware' => ['permission: Create']], function () {
+    Route::post('/clients', 'App\Http\Controllers\ClientsController@store')->name('clients.store');
+
+    Route::get('/clients/create', 'App\Http\Controllers\ClientsController@create')->name('clients.create');
+});
+
+
+Route::resource('users', UserController::class)->middleware('auth');
+
+
+Route::resource('roles', App\Http\Controllers\rolesController::class);
+Route::get('/users/assignroles/{id}', 'App\Http\Controllers\UserController@assignRoles')->name('users.assignroles');
+Route::patch('/users/updateroles/{id}', 'App\Http\Controllers\UserController@updateRoles')->name("roles.rolesupdate");
+Route::get('/roles/assignpermissions/{id}', 'App\Http\Controllers\RolesController@assignPermissions')->name('roles.assignpermissions');
+Route::patch('/roles/updatepermissions/{id}', 'App\Http\Controllers\RolesController@updatePermissions')->name("roles.permissionsupdate");
+Route::resource('permissions', App\Http\Controllers\permissionsController::class);
