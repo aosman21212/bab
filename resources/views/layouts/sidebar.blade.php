@@ -32,8 +32,7 @@
                             <ul>
                              
                                 <li>
-                                    <a class="" href="business.html">FineTech /
-                                        Business</a>
+                                    <a class=""  href="{{ route('home') }}">Dashboard</a>
                                 </li>
                               
                               

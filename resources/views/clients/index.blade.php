@@ -31,12 +31,17 @@
                                           
                                         </div>
                                     </div>
-                                  
+                              
+
                                     <div class="action-btn">
-                                    <a class="btn btn-primary float-right"
-                                    href="{{ route('clients.create') }}">
-                                            <i class="la la-plus"></i> Add New</a>
-                                    </div>
+                                    @if (Auth::user()->hasRole('clients'))
+ 
+        <a class="btn btn-primary float-right" href="{{ route('clients.create') }}">
+            <i class="la la-plus"></i> Add New
+        </a>
+@endif
+
+                                 
                                 </div>
                             </div>
                     

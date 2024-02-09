@@ -33,12 +33,14 @@ class clientsController extends AppBaseController
      */
     public function index(Request $request)
     {
-        $clients = $this->clientsRepository->paginate(2); // Assuming 'paginate' method is implemented in the repository
-
+        $clients = $this->clientsRepository->paginate(2);
+        $totalClients = clients::count(); // Fetch total count of clients from the database
+    
         return view('clients.index')
-            ->with('clients', $clients);
+            ->with('clients', $clients)
+            ->with('totalClients', $totalClients); // Pass total count to the view
     }
-
+    
     /**
      * Show the form for creating a new clients.
      *

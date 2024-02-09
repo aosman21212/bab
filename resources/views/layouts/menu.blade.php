@@ -17,11 +17,13 @@
             Vendors
         </a>
     </li>
+
     <li>
         <a href="{{ route('clients.index') }}" class="{{ Request::is('clients*') ? 'active' : '' }}">
             Clients
         </a>
     </li>
+
  
  
     <li>

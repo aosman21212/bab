@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\clients; // Import the clients model
+use App\Models\vendors; // Import the vendors model
 
 class HomeController extends Controller
 {
@@ -23,6 +25,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $totalClients = clients::count(); // Fetch total count of clients from the database
+        $totalVendors = vendors::count(); // Fetch total count of vendors from the database
+
+        return view('home', compact('totalClients', 'totalVendors')); // Pass totalClients and totalVendors variables to the home view
     }
 }
