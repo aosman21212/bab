@@ -10,64 +10,11 @@
                                 <div class="col-lg-12">
 
                                     <div class="breadcrumb-main">
-                                        <h4 class="text-capitalize breadcrumb-title">Sales Performance</h4>
+                                        <h4 class="text-capitalize breadcrumb-title"> </h4>
                                         <div class="breadcrumb-action justify-content-center flex-wrap">
-                                            <div class="action-btn">
+                        
+                                            </div>
 
-                                                <div class="form-group mb-0">
-                                                    <div class="input-container icon-left position-relative">
-                                                        <span class="input-icon icon-left">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
-                                                        </span>
-                                                        <input type="text" class="form-control form-control-default date-ranger" name="date-ranger" placeholder="Oct 30, 2019 - Nov 30, 2019" fdprocessedid="bdk8hj">
-                                                        <span class="input-icon icon-right">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="dropdown action-btn">
-                                                <button class="btn btn-sm btn-default btn-white dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" fdprocessedid="rci8d">
-                                                    <i class="la la-download"></i> Export
-                                                </button>
-                                                <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                                                    <span class="dropdown-item">Export With</span>
-                                                    <div class="dropdown-divider"></div>
-                                                    <a href="" class="dropdown-item">
-                                                        <i class="la la-print"></i> Printer</a>
-                                                    <a href="" class="dropdown-item">
-                                                        <i class="la la-file-pdf"></i> PDF</a>
-                                                    <a href="" class="dropdown-item">
-                                                        <i class="la la-file-text"></i> Google Sheets</a>
-                                                    <a href="" class="dropdown-item">
-                                                        <i class="la la-file-excel"></i> Excel (XLSX)</a>
-                                                    <a href="" class="dropdown-item">
-                                                        <i class="la la-file-csv"></i> CSV</a>
-                                                </div>
-                                            </div>
-                                            <div class="dropdown action-btn">
-                                                <button class="btn btn-sm btn-default btn-white dropdown-toggle" type="button" id="dropdownMenu3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" fdprocessedid="t2lj5h">
-                                                    <i class="la la-share"></i> Share
-                                                </button>
-                                                <div class="dropdown-menu" aria-labelledby="dropdownMenu3">
-                                                    <span class="dropdown-item">Share Link</span>
-                                                    <div class="dropdown-divider"></div>
-                                                    <a href="" class="dropdown-item">
-                                                        <i class="la la-facebook"></i> Facebook</a>
-                                                    <a href="" class="dropdown-item">
-                                                        <i class="la la-twitter"></i> Twitter</a>
-                                                    <a href="" class="dropdown-item">
-                                                        <i class="la la-google"></i> Google</a>
-                                                    <a href="" class="dropdown-item">
-                                                        <i class="la la-feed"></i> Feed</a>
-                                                    <a href="" class="dropdown-item">
-                                                        <i class="la la-instagram"></i> Instagram</a>
-                                                </div>
-                                            </div>
-                                            <div class="action-btn">
-                                                <a href="" class="btn btn-sm btn-primary btn-add">
-                                                    <i class="la la-plus"></i> Add New</a>
-                                            </div>
                                         </div>
                                     </div>
 
@@ -184,12 +131,11 @@
 </svg>
                                                             </div>
                                                             <div>
-                                                                <h2>$40.2k</h2>
-                                                                <p class="mb-3 mt-1">Profit</p>
+                                                                <p class="mb-3 mt-1">Client Data</p>
                                                                 <div class="ap-po-details-time">
-                                                                    <span class="color-danger"><i class="las la-arrow-down"></i>
-                                                                        <strong>8.2%</strong></span>
-                                                                    <small>Since last week</small>
+                                                                    <!-- <span class="color-danger"><i class="las la-arrow-down"></i> -->
+
+                                                                    <small>{{ $totalClientData }}</small>
                                                                 </div>
                                                             </div>
                                                         </div>
