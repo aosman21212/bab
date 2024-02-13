@@ -34,12 +34,10 @@
                               
 
                                     <div class="action-btn">
-                                    @if (Auth::user()->hasRole('clients'))
  
         <a class="btn btn-primary float-right" href="{{ route('clients.create') }}">
             <i class="la la-plus"></i> Add New
         </a>
-@endif
 
                                  
                                 </div>

@@ -41,12 +41,7 @@ Route::resource('vendordatas', App\Http\Controllers\vendordataController::class)
 Route::resource('clientdatas', App\Http\Controllers\clientdataController::class);
 // Route::get('/fetch-product-services', 'clientdataController@fetchProductServices');
 
-Route::group(['middleware' => ['permission: Create']], function () {
-    Route::post('/clients', 'App\Http\Controllers\ClientsController@store')->name('clients.store');
-
-    Route::get('/clients/create', 'App\Http\Controllers\ClientsController@create')->name('clients.create');
-});
-
+  
 
 Route::resource('users', UserController::class)->middleware('auth');
 
@@ -57,3 +52,6 @@ Route::patch('/users/updateroles/{id}', 'App\Http\Controllers\UserController@upd
 Route::get('/roles/assignpermissions/{id}', 'App\Http\Controllers\RolesController@assignPermissions')->name('roles.assignpermissions');
 Route::patch('/roles/updatepermissions/{id}', 'App\Http\Controllers\RolesController@updatePermissions')->name("roles.permissionsupdate");
 Route::resource('permissions', App\Http\Controllers\permissionsController::class);
+
+
+Route::resource('clientdatareports', App\Http\Controllers\clientdatareportController::class);

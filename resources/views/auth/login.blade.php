@@ -63,13 +63,13 @@
                                 <img class="svg signupTop" src="img/svg/signuptop.svg" alt="img" />
                                 <img class="svg signupBottom" src="img/svg/signupbottom.svg" alt="img" />
                             </div><!-- End: .signUP-overlay  -->
-                            <div class="signUP-admin-left__content">
+                            <!-- <div class="signUP-admin-left__content">
                                 <div class="text-capitalize mb-md-30 mb-15 d-flex align-items-center justify-content-md-start justify-content-center">
                                     <a class="wh-36 bg-primary text-white radius-md mr-10 content-center" href="index.html">a</a>
                                     <span class="text-dark">{{ config('app.name') }}</span>
                                 </div>
                                 <h1> </h1>
-                            </div><!-- End: .signUP-admin-left__content  -->
+                            </div>End: .signUP-admin-left__content  -->
                             <div class="signUP-admin-left__img">
                                 <img class="img-fluid svg" src="img/svg/signupIllustration.svg" alt="img" />
                             </div><!-- End: .signUP-admin-left__img  -->

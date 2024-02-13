@@ -5,7 +5,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-12">
-                    <h1>Edit User</h1>
+                    <h1>Edit Clientdatareport</h1>
                 </div>
             </div>
         </div>
@@ -17,17 +17,17 @@
 
         <div class="card">
 
-            {!! Form::model($user, ['route' => ['users.update', $user->id], 'method' => 'patch']) !!} <!-- Note the change to $user -->
+            {!! Form::model($clientdatareport, ['route' => ['clientdatareports.update', $clientdatareport->id], 'method' => 'patch']) !!}
 
             <div class="card-body">
                 <div class="row">
-                    @include('users.fields') <!-- Assuming 'users.fields' includes the form fields -->
+                    @include('clientdatareports.fields')
                 </div>
             </div>
 
             <div class="card-footer">
                 {!! Form::submit('Save', ['class' => 'btn btn-primary']) !!}
-                <a href="{{ route('users.index') }}" class="btn btn-default">Cancel</a>
+                <a href="{{ route('clientdatareports.index') }}" class="btn btn-default">Cancel</a>
             </div>
 
             {!! Form::close() !!}

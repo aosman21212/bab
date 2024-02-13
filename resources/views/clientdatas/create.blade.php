@@ -44,6 +44,8 @@
                                             <h6> Adding client datas </h6>
                                         </div>
                                         <div class="card-body py-md-30">
+                                        @include('adminlte-templates::common.errors')
+
                                             <div class="horizontal-form">
                                             {!! Form::open(['route' => 'clientdatas.store']) !!}
                                             @include('clientdatas.fields')

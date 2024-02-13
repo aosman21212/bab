@@ -41,7 +41,7 @@
             {!! Form::label('additionalFees', 'Additional fees:', ['class' => 'form-label']) !!}
         </div>
         <div class="col-sm-9">
-            {!! Form::number('additionalFees', null, ['class' => 'form-control']) !!}
+            {!! Form::text('additionalFees', null, ['class' => 'form-control']) !!}
         </div>
     </div>
 </div>

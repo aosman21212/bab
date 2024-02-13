@@ -47,7 +47,7 @@
 </label>
                                                         </div>
                                                         <div class="col-sm-9">
-                                                        {!! Form::number('additionalFees', null, ['class' => 'form-control', 'oninput' => 'calculateAdditionalCost()']) !!}
+{!! Form::number('additionalFees', null, ['class' => 'form-control', 'step' => 'any', 'oninput' => 'calculateAdditionalCost()']) !!}
                                                         </div>
                                                     </div>
 
@@ -126,7 +126,7 @@
 </label>
 </div>
                                                         <div class="col-sm-9">
-                                                        {!! Form::number('totalDue', null, ['class' => 'form-control']) !!}
+{!! Form::number('totalDue', null, ['class' => 'form-control', 'step' => 'any']) !!}
                                                         </div>
                                                     </div>
 
