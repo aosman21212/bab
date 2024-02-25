@@ -2,7 +2,7 @@
     <!-- Productserviceid Field -->
     <tr>
         <td class="col-sm-12">
-            {!! Form::label('productServiceId', 'service:') !!}
+            {!! Form::label('productServiceId', 'Client Services:') !!}
         </td>
         <td>
             <p>{{ $clientdata->productserviceid->productServiceName }}</p>

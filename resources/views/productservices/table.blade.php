@@ -1,3 +1,17 @@
+<div class="alert">
+    @if(session('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
+    @endif
+    
+    @if(session('error'))
+        <div class="alert alert-danger">
+            {{ session('error') }}
+        </div>
+    @endif
+</div>
+
 <div class="table4 table5 p-25 bg-white">
     <div class="table-responsive">
         <table class="table mb-0">
@@ -89,13 +103,18 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#" class="remove" onclick="event.preventDefault(); document.getElementById('delete-form-{{ $productservice->id }}').submit();">
-                                        <i class="fas fa-trash-alt"></i>
-                                    </a>
-                                    <form action="{{ route('productservices.destroy', [$productservice->id]) }}" method="POST" id="delete-form-{{ $productservice->id }}" style="display: none;">
-                                        @csrf
-                                        @method('DELETE')
-                                    </form>
+                                    @if ($productservice->vendorData->isEmpty() && $productservice->clientData->isEmpty())
+                                        <a href="#" class="remove" onclick="event.preventDefault(); document.getElementById('delete-form-{{ $productservice->id }}').submit();">
+                                            <i class="fas fa-trash-alt"></i>
+                                        </a>
+                                        <form action="{{ route('productservices.destroy', [$productservice->id]) }}" method="POST" id="delete-form-{{ $productservice->id }}" style="display: none;">
+                                            @csrf
+                                            @method('DELETE')
+                                        </form>
+                                    @else
+                                        <!-- <span class="remove disabled"><i class="fas fa-trash-alt"></i></span>
+                                        <span class="text-danger ml-1" style="font-size: 10px;">Cannot delete</span> -->
+                                    @endif
                                 </li>
                             </ul>
                         </div>

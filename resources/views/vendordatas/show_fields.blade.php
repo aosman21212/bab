@@ -2,10 +2,10 @@
     <!-- Productserviceid Field -->
     <tr>
         <td class="col-sm-12">
-            {!! Form::label('productServiceId', 'Productserviceid:') !!}
+            {!! Form::label('productServiceId', 'Client Services:') !!}
         </td>
         <td>
-            <p>{{ $vendordata->productServiceId }}</p>
+            <p>{{ $vendordata->productserviceid->productServiceName  }}</p>
         </td>
     </tr>
 
@@ -35,7 +35,8 @@
             {!! Form::label('invoiceMonth', 'Invoicemonth:') !!}
         </td>
         <td>
-            <p>{{ $vendordata->invoiceMonth }}</p>
+            <p>        {{ \Carbon\Carbon::parse($vendordata->invoiceMonth)->format('F') }}
+</p>
         </td>
     </tr>
 
@@ -51,13 +52,14 @@
 
     <!-- Invoicedate Field -->
     <tr>
-        <td class="col-sm-12">
-            {!! Form::label('invoiceDate', 'Invoicedate:') !!}
-        </td>
-        <td>
-            <p>{{ $vendordata->invoiceDate }}</p>
-        </td>
-    </tr>
+    <td class="col-sm-12">
+        {!! Form::label('invoiceDate', 'Invoicedate:') !!}
+    </td>
+    <td>
+        <p>{{ $vendordata->invoiceDate->format('Y-m-d') }}</p>
+    </td>
+</tr>
+
 
     <!-- Addedby Field -->
     <tr>

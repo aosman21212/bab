@@ -1,36 +1,43 @@
 @extends('layouts.app')
 
 @section('content')
-    <section class="content-header">
-        <div class="container-fluid">
-            <div class="row mb-2">
-                <div class="col-sm-6">
-                    <h1>Client Data Reports</h1>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="shop-breadcrumb">
+                <div class="breadcrumb-main">
+                    <h4 class="text-capitalize breadcrumb-title">client Data</h4>
+                    <div class="breadcrumb-action justify-content-center flex-wrap">
+                    
+                        <div class="action-btn">
+                        <form action="{{ route('clientdatareports.export') }}" method="GET">
+    <!-- <div class="form-group">
+        <input type="text" name="clientId" placeholder="Client ID" class="form-control">
+    </div> -->
+    <button type="submit" class="btn btn-sm btn-default btn-white">
+        <i class="la la-download"></i> Export Excel
+    </button>
+</form>
+
+                        </div>
+                    </div>
                 </div>
-                
             </div>
         </div>
-    </section>
+    </div>
+</div>
 
-    <div class="content px-3">
-
+<div class="container-fluid">
+    <div class="col-lg-12 mb-30">
         @include('flash::message')
-
-        <div class="clearfix"></div>
 
         <div class="card">
             <div class="card-body p-0">
                 @include('clientdatareports.table')
-
-                <div class="card-footer clearfix">
-                    <div class="float-right">
-                        
-                    </div>
-                </div>
             </div>
-
         </div>
     </div>
+</div>
 
 @endsection
-

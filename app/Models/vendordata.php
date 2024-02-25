@@ -12,7 +12,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
  * @version February 2, 2024, 1:44 pm UTC
  *
  * @property \App\Models\User $addedby
- * @property \App\Models\ProductService $productserviceid
+ * @property \App\Models\productservices $productserviceid
  * @property integer $productServiceId
  * @property string $invoiceNo
  * @property number $invoiceAmount

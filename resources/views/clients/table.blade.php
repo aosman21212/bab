@@ -8,7 +8,6 @@
                             Client Name
                         </div>
                     </th>
-                   
                     <th>
                         <div class="userDatatable-title">
                             Contact Name
@@ -19,7 +18,6 @@
                             Mobile No
                         </div>
                     </th>
-                   
                     <th>
                         <div class="userDatatable-title">
                             Order Date
@@ -50,11 +48,6 @@
                             {{ $client->clientName }}
                         </div>
                     </td>
-                    <!-- <td>
-                        <div class="userDatatable-content">
-                            <img src="{{ asset('storage/' . $client->clientLogo) }}" alt="Client Logo">
-                        </div>
-                    </td> -->
                     <td>
                         <div class="userDatatable-content">
                             {{ $client->contactName }}
@@ -65,7 +58,6 @@
                             {{ $client->mobileNo }}
                         </div>
                     </td>
-                   
                     <td>
                         <div class="userDatatable-content">
                             {{ $client->orderDate->format('Y-m-d') }}
@@ -82,31 +74,30 @@
                         </div>
                     </td>
                     <td>
-    <div class="userDatatable-content">
-        <ul class="orderDatatable_actions mb-0 d-flex flex-wrap float-right">
-            <li>
-                <a href="{{ route('clients.show', [$client->id]) }}" class="view">
-                    <i class="fas fa-eye"></i>
-                </a>
-            </li>
-            <li>
-                <a href="{{ route('clients.edit', [$client->id]) }}" class="edit">
-                    <i class="fas fa-edit"></i>
-                </a>
-            </li>
-            <li>
-                <a href="#" class="remove" onclick="event.preventDefault(); if(confirm('Are you sure?')) { document.getElementById('delete-form-{{ $client->id }}').submit(); }">
-                    <i class="fas fa-trash-alt"></i>
-                </a>
-                <form action="{{ route('clients.destroy', [$client->id]) }}" method="POST" id="delete-form-{{ $client->id }}" style="display: none;">
-                    @csrf
-                    @method('DELETE')
-                </form>
-            </li>
-        </ul>
-    </div>
-</td>
-
+                        <div class="userDatatable-content">
+                            <ul class="orderDatatable_actions mb-0 d-flex flex-wrap float-right">
+                                <li>
+                                    <a href="{{ route('clients.show', [$client->id]) }}" class="view">
+                                        <i class="fas fa-eye"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{{ route('clients.edit', [$client->id]) }}" class="edit">
+                                        <i class="fas fa-edit"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    @if ($client->productServices->isNotEmpty())
+                                        <!-- <span class="remove-btn disabled"><i class="fas fa-trash-alt"></i></span>
+                                        <span class="text-danger ml-1">Cannot delete</span> -->
+                                    @else
+                                        <a href="#" class="remove-btn" data-id="{{ $client->id }}"><i class="fas fa-trash-alt"></i></a>
+                                        <form action="{{ route('clients.destroy', [$client->id]) }}" method="POST" id="delete-form-{{ $client->id }}" style="display: none;">
+                                            @csrf
+                                            @method('DELETE')
+                                        </form>
+                                    @endif
+                                </li>
                             </ul>
                         </div>
                     </td>
@@ -117,8 +108,6 @@
     </div>
     <div class="d-flex justify-content-between align-items-center mt-30">
         <div class="pagination-total-text">1-{{ count($clients) }} of {{ count($clients) }} items</div>
-        <div>
-            {{ $clients->links() }}
-        </div>
+        <div>{{ $clients->links() }}</div>
     </div>
 </div>

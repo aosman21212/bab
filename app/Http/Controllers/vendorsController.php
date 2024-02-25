@@ -179,18 +179,23 @@ public function update($id, UpdatevendorsRequest $request)
     public function destroy($id)
     {
         $vendors = $this->vendorsRepository->find($id);
-
+    
         if (empty($vendors)) {
-            Flash::error('Vendors not found');
-
+            flash()->error('Vendors not found');
             return redirect(route('vendors.index'));
         }
-
+    
+        if ($vendors->orders()->exists()) {
+            flash()->error('Cannot delete vendor because it has associated orders.');
+            return redirect(route('vendors.index'));
+        }
+    
         $this->vendorsRepository->delete($id);
-
-        Flash::success('Vendors deleted successfully.');
-
+    
+        flash()->success('Vendors deleted successfully.');
+    
         return redirect(route('vendors.index'));
     }
+    
     
 }

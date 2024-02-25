@@ -75,4 +75,15 @@ class babacctmanagers extends Model
     {
         return $this->belongsTo(\App\Models\User::class, 'addedBy');
     }
+
+    public function clients()
+    {
+        return $this->hasMany(clients::class, 'babAcctManagerId');
+    }
+
+    // Method to check if there are related clients
+    public function hasClients()
+    {
+        return $this->clients()->exists();
+    }
 }

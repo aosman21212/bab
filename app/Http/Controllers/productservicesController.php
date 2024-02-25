@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Database\QueryException; // Import QueryException
 
 use App\Http\Requests\CreateproductservicesRequest;
 use App\Http\Requests\UpdateproductservicesRequest;
@@ -149,18 +150,21 @@ class productservicesController extends AppBaseController
      */
     public function destroy($id)
     {
-        $productservices = $this->productservicesRepository->find($id);
-
-        if (empty($productservices)) {
-            Flash::error('Productservices not found');
-
-            return redirect(route('productservices.index'));
+        try {
+            $productservices = $this->productservicesRepository->find($id);
+    
+            if (empty($productservices)) {
+                Flash::error('Productservices not found');
+                return redirect(route('productservices.index'));
+            }
+    
+            $this->productservicesRepository->delete($id);
+    
+            Flash::success('Productservices deleted successfully.');
+        } catch (QueryException $e) {
+            Flash::error('Cannot delete productservices. This productservices is associated with other data.');
         }
-
-        $this->productservicesRepository->delete($id);
-
-        Flash::success('Productservices deleted successfully.');
-
+    
         return redirect(route('productservices.index'));
     }
 }

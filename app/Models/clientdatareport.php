@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 /**
  * Class clientdatareport
  * @package App\Models
- * @version February 13, 2024, 6:14 pm UTC
+ * @version February 20, 2024, 2:56 pm UTC
  *
  * @property \App\Models\User $addedby
  * @property \App\Models\clients $clientid
@@ -117,7 +117,4 @@ class clientdatareport extends Model
     {
         return $this->belongsTo(\App\Models\productservices::class, 'productServiceId');
     }
-
-     // Accessor to convert month number to month name
-   
 }

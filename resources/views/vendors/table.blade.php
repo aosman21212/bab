@@ -54,32 +54,47 @@
                         </div>
                     </td>
                     <td>
-                        <div class="userDatatable-content">
-                            <ul class="orderDatatable_actions mb-0 d-flex flex-wrap float-right">
-                                <li>
-                                    <a href="{{ route('vendors.show', [$vendor->id]) }}" class="view">
-                                        <i class="fas fa-eye"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="{{ route('vendors.edit', [$vendor->id]) }}" class="edit">
-                                        <i class="fas fa-edit"></i>
-                                    </a>
-                                </li>
-                                <li>
-    <a href="#" class="remove-btn" data-id="{{ $vendor->id }}">
-        <i class="fas fa-trash-alt"></i>
-    </a>
-    <form action="{{ route('vendors.destroy', [$vendor->id]) }}" method="POST" id="delete-form-{{ $vendor->id }}" style="display: none;">
-        @csrf
-        @method('DELETE')
-    </form>
-</li
+    <div class="userDatatable-content">
+        <ul class="orderDatatable_actions mb-0 d-flex flex-wrap float-right">
+            <li><a href="{{ route('vendors.show', [$vendor->id]) }}" class="view"><i class="fas fa-eye"></i></a></li>
+            <li><a href="{{ route('vendors.edit', [$vendor->id]) }}" class="edit"><i class="fas fa-edit"></i></a></li>
+            <li>
+                @if ($vendor->productServices->isNotEmpty())
+                @else
+                    <a href="#" class="remove-btn" onclick="event.preventDefault(); if(confirm('Are you sure?')) { document.getElementById('delete-form-{{ $vendor->id }}').submit(); }"><i class="fas fa-trash-alt"></i></a>
+                    <form action="{{ route('vendors.destroy', [$vendor->id]) }}" method="POST" id="delete-form-{{ $vendor->id }}" style="display: none;">
+                        @csrf
+                        @method('DELETE')
+                    </form>
+                @endif
+            </li>
+        </ul>
+    </div>
+</td>
+
+
+                    <!-- <td>
+    <div class="userDatatable-content">
+        <ul class="orderDatatable_actions mb-0 d-flex flex-wrap float-right">
+            <li><a href="{{ route('vendors.show', [$vendor->id]) }}" class="view"><i class="fas fa-eye"></i></a></li>
+            <li><a href="{{ route('vendors.edit', [$vendor->id]) }}" class="edit"><i class="fas fa-edit"></i></a></li>
+            <li>
+                @if ($vendor->productServices->isNotEmpty())
+                    <span class="remove-btn"><i class="fas fa-trash-alt"></i></span>
+                    <span class="text-danger ml-1" style="font-size: 10px;">Cannot delete</span>
+                @else
+                    <a href="#" class="remove-btn" data-id="{{ $vendor->id }}"><i class="fas fa-trash-alt"></i></a>
+                    <form action="{{ route('vendors.destroy', [$vendor->id]) }}" method="POST" id="delete-form-{{ $vendor->id }}" style="display: none;">
+                        @csrf
+                        @method('DELETE')
+                    </form>
+                @endif
+            </li> -->
+        </ul>
+    </div>
+</td>
+
                             </ul>
-                            <form action="{{ route('vendors.destroy', [$vendor->id]) }}" method="POST" id="delete-form-{{ $vendor->id }}" style="display: none;">
-                                @csrf
-                                @method('DELETE')
-                            </form>
                         </div>
                     </td>
                 </tr>
@@ -89,9 +104,7 @@
     </div>
     <div class="d-flex justify-content-between align-items-center mt-30">
         <div class="pagination-total-text">1-{{ count($vendors) }} of {{ count($vendors) }} items</div>
-        <div>
-            {{ $vendors->links() }}
-        </div>
+        <div>{{ $vendors->links() }}</div>
     </div>
 </div>
 
@@ -128,4 +141,3 @@
         });
     });
 </script>
-

@@ -1,14 +1,15 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use App\DataTables\clientdatareportDataTable;
-use App\Http\Requests;
+use App\Exports\ClientDataReportsExport;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Models\clientdatareport;
 use App\Http\Requests\CreateclientdatareportRequest;
 use App\Http\Requests\UpdateclientdatareportRequest;
 use App\Repositories\clientdatareportRepository;
-use Flash;
 use App\Http\Controllers\AppBaseController;
+use Illuminate\Http\Request;
+use Flash;
 use Response;
 
 class clientdatareportController extends AppBaseController
@@ -24,13 +25,17 @@ class clientdatareportController extends AppBaseController
     /**
      * Display a listing of the clientdatareport.
      *
-     * @param clientdatareportDataTable $clientdatareportDataTable
+     * @param Request $request
      *
      * @return Response
      */
-    public function index(clientdatareportDataTable $clientdatareportDataTable)
+    public function index(Request $request)
     {
-        return $clientdatareportDataTable->render('clientdatareports.index');
+        $clientdatareports = $this->clientdatareportRepository->all();
+        $clientdatareports = clientdatareport::paginate(8); // Paginate the results, 8 items per page
+
+        return view('clientdatareports.index')
+            ->with('clientdatareports', $clientdatareports);
     }
 
     /**
@@ -131,6 +136,8 @@ class clientdatareportController extends AppBaseController
      *
      * @param int $id
      *
+     * @throws \Exception
+     *
      * @return Response
      */
     public function destroy($id)
@@ -148,5 +155,16 @@ class clientdatareportController extends AppBaseController
         Flash::success('Clientdatareport deleted successfully.');
 
         return redirect(route('clientdatareports.index'));
+    }
+
+
+    public function export(Request $request)
+    {
+        $searchCriteria = [
+            'clientId' => $request->input('clientId'),
+            // Add more search criteria as needed
+        ];
+    
+        return Excel::download(new ClientDataReportsExport($searchCriteria), 'client_data_reports.xlsx');
     }
 }

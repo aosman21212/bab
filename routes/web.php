@@ -22,9 +22,11 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+Route::get('/clientdatareports/export', 'App\Http\Controllers\clientdatareportController@export')->name('clientdatareports.export');
 
 Route::resource('vendors', App\Http\Controllers\vendorsController::class);
 
+Route::get('/vendordatas/export', 'App\Http\Controllers\VendordataController@export')->name('vendordatas.export');
 
 Route::resource('clients', App\Http\Controllers\clientsController::class);
 

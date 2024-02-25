@@ -16,7 +16,7 @@
 
                                         
                                     </div>
-                                    <div class="dropdown action-btn">
+                                    <!-- <div class="dropdown action-btn">
                                         <button class="btn btn-sm btn-default btn-white dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                             <i class="la la-download"></i> Export
                                         </button>
@@ -29,7 +29,7 @@
                                                 <i class="la la-file-pdf"></i> PDF</a>
                                           
                                         </div>
-                                    </div>
+                                    </div> -->
                                   
                                     <div class="action-btn">
                                     <a class="btn btn-primary float-right"
@@ -45,6 +45,7 @@
                     </div>
                 </div>
             </div>
+            
             <div class="container-fluid">
             @include('flash::message')
 

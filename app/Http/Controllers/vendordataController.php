@@ -8,6 +8,8 @@ use App\Repositories\vendordataRepository;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
 use App\Models\productservices;
+use App\Exports\VendordataExport;
+use Maatwebsite\Excel\Facades\Excel;
 use App\Models\vendordata;
 
 use Flash;
@@ -161,4 +163,12 @@ class vendordataController extends AppBaseController
 
         return redirect(route('vendordatas.index'));
     }
+    public function export(Request $request)
+{
+    // Fetch any search criteria from the request if needed
+    $searchCriteria = $request->all();
+
+    // Trigger the export using the VendordataExport class
+    return Excel::download(new VendordataExport($searchCriteria), 'vendordata.xlsx');
+}
 }

@@ -6,7 +6,7 @@
                             <tr class="userDatatable-header">
                                 <th>
                                     <div class="userDatatable-title">
-                                        Service
+                                    Client Services
                                     </div>
                                 </th>
                                 <th>

@@ -77,9 +77,9 @@ class productservices extends Model
      */
     public static $rules = [
         'productServiceName' => 'required|string|max:255',
-        'initiatedQuantity' => 'required|integer',
-        'recurringFees' => 'required|numeric',
-        'additionalFees' => 'required|numeric',
+        'initiatedQuantity' => 'required|string',
+        'recurringFees' => 'required|string',
+        'additionalFees' => 'required|string',
         'recurringPeriod' => 'required|string',
         'addedBy' => 'required',
         'clientId' => 'required',

@@ -17,7 +17,7 @@
             {!! Form::label('initiatedQuantity', 'Initiated quantity:', ['class' => 'form-label']) !!}
         </div>
         <div class="col-sm-9">
-            {!! Form::number('initiatedQuantity', null, ['class' => 'form-control']) !!}
+            {!! Form::text('initiatedQuantity', null, ['class' => 'form-control']) !!}
         </div>
     </div>
 </div>
@@ -29,7 +29,7 @@
             {!! Form::label('recurringFees', 'Recurring fees:', ['class' => 'form-label']) !!}
         </div>
         <div class="col-sm-9">
-            {!! Form::number('recurringFees', null, ['class' => 'form-control']) !!}
+            {!! Form::text('recurringFees', null, ['class' => 'form-control']) !!}
         </div>
     </div>
 </div>

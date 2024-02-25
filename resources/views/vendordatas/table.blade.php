@@ -5,8 +5,7 @@
                 <tr class="userDatatable-header">
                     <th>
                         <div class="userDatatable-title">
-                            Name
-                        </div>
+                        Client Services                        </div>
                     </th>
                     <th>
                         <div class="userDatatable-title">
@@ -64,10 +63,11 @@
                         </div>
                     </td>
                     <td>
-                        <div class="userDatatable-content">
-                            {{ $vendordata->invoiceMonth }}
-                        </div>
-                    </td>
+    <div class="userDatatable-content">
+        {{ \Carbon\Carbon::parse($vendordata->invoiceMonth)->format('F') }}
+    </div>
+</td>
+
                     <td>
                         <div class="userDatatable-content">
                             {{ $vendordata->invoiceYear }}

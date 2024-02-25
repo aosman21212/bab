@@ -13,6 +13,7 @@ use Illuminate\Http\Request;
 use Flash;
 use Response;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Database\QueryException; // Import QueryException
 
 class clientsController extends AppBaseController
 {
@@ -163,24 +164,28 @@ class clientsController extends AppBaseController
      *
      * @return Response
      */
+   
     public function destroy($id)
     {
-        $clients = $this->clientsRepository->find($id);
+        try {
+            $clients = $this->clientsRepository->find($id);
 
-        if (empty($clients)) {
-            Flash::error('Clients not found');
+            if (empty($clients)) {
+                Flash::error('Clients not found');
+                return redirect(route('clients.index'));
+            }
 
-            return redirect(route('clients.index'));
+            // Delete associated file
+            if ($clients->clientLogo) {
+                Storage::disk('public')->delete($clients->clientLogo);
+            }
+
+            $this->clientsRepository->delete($id);
+
+            Flash::success('Clients deleted successfully.');
+        } catch (QueryException $e) {
+            Flash::error('Cannot delete client. This client is associated with other data.');
         }
-
-        // Delete associated file
-        if ($clients->clientLogo) {
-            Storage::disk('public')->delete($clients->clientLogo);
-        }
-
-        $this->clientsRepository->delete($id);
-
-        Flash::success('Clients deleted successfully.');
 
         return redirect(route('clients.index'));
     }

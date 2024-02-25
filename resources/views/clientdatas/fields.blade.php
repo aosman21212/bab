@@ -22,11 +22,11 @@
                                                     </div>
 <div class="form-group row">
                                                         <div class="col-sm-3 d-flex aling-items-center">
-                                                            <label for="element-text4" class=" col-form-label color-dark fs-14 fw-500 align-center">    {!! Form::label('productServiceId', 'Service :') !!}
+                                                            <label for="element-text4" class=" col-form-label color-dark fs-14 fw-500 align-center">    {!! Form::label('productServiceId', 'Client Services :') !!}
 </label>
                                                         </div>
                                                         <div class="col-sm-9">
-                                                        {!! Form::select('productServiceId', $prod->pluck('productServiceName', 'id'), null, ['class' => 'form-control', 'placeholder' => 'Select ProductServiceName', 'id' => 'productServiceId', 'onchange' => 'fetchInitiatedQuantity()']) !!}
+                                                        {!! Form::select('productServiceId', $prod->pluck('productServiceName', 'id'), null, ['class' => 'form-control', 'placeholder' => 'Select Client Services', 'id' => 'productServiceId', 'onchange' => 'fetchInitiatedQuantity()']) !!}
                                                         </div>
                                                     </div>
                                                     <div class="form-group row">
@@ -115,7 +115,7 @@
 </label>
 </div>
                                                         <div class="col-sm-9">
-                                                        {!! Form::number('outstandingBalance', null, ['class' => 'form-control']) !!}
+                                                        {!! Form::text('outstandingBalance', null, ['class' => 'form-control']) !!}
                                                         </div>
                                                     </div>
                                                     <div class="form-group row">
